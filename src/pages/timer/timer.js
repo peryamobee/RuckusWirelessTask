@@ -12,5 +12,5 @@ module.exports.stateConfig = {
     url:"/timer",
     abstract:false,
     template: require("./timer.html"),
-    controller: timerController,
+    controller: timerController
 };
