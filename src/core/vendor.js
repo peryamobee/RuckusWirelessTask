@@ -8,4 +8,7 @@ module.exports = function () {
   require('angular');
   global.moment = require('moment');
 
+  /* angular vendors */
+  require('ui-router');
+  require('angular-ui-router.statehelper')
 };

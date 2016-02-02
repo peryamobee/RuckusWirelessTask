@@ -17,7 +17,12 @@ module.exports = {
     watch: true,
     devtool: 'source-map',
     resolve: {
-        root: __dirname + '/src'
+        //root: __dirname + '/src'
+        root:[
+            path.resolve('src'),
+            path.resolve('node_modules')
+        ]
+
     },
     entry:{
         TimerApp:'./src/core/bootstrap.js'
@@ -42,7 +47,7 @@ module.exports = {
                 loader : 'file-loader?name=res/[name].[ext]?[hash]'
             },
 
-            {test: /\.html/,
+            {test: /\.html$/,
                 loader: 'raw'},
 
             {test: /\.json/,
