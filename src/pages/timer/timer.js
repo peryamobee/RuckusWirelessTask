@@ -1,7 +1,7 @@
 /**
  * Created by pery on 31/01/2016.
  */
-module.exports = require("angular").module(__filename, [])
+module.exports = require("angular").module(__filename, []);
 
 function timerController(){
 

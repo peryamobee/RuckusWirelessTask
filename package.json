@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
+  "config":{
+    "port":"3000"
+  },
   "dependencies": {
     "angular": "^1.4.9",
     "animate.css": "^3.4.0",
