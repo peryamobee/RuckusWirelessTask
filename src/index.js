@@ -18,5 +18,5 @@ module.exports = angular.module('app', [
     $urlRouterProvider.otherwise(Timer.url);
 })
 .run(function () {
-    alert('angular alive');
+
 });

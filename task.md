@@ -26,3 +26,7 @@ You have nothing on the screen except single input for user that can enter desir
 If you have any questions regarding this assignment, please contact me at alexey.bass@ruckuswireless.com.
 
 -- Alexey
+
+
+todo: make gulp `serve` for copy index.html and run web-dev-server
+todo: make .map more useful  
