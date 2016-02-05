@@ -1,7 +1,7 @@
 /*jshint browser:true */
 'use strict';
 
-require('./vendor.js')();
+//require('./vendor.js')();
 var appModule = require('../index');
 
 angular.element(document).ready(function () {

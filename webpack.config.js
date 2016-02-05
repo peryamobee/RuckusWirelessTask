@@ -5,6 +5,8 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 var exportRunTimeVariable = new webpack.DefinePlugin({
     MODE: {
         production: process.env.NODE_ENV === 'production'
@@ -17,15 +19,16 @@ module.exports = {
     watch: true,
     devtool: 'source-map',
     resolve: {
-        //root: __dirname + '/src'
         root:[
-            path.resolve('src'),
-            path.resolve('node_modules')
+            path.resolve('src')
+            ,path.resolve('node_modules')
+            ,path.resolve('bower_components')
         ]
-
+        //root: __dirname + '/src'
     },
     entry:{
         TimerApp:'./src/core/bootstrap.js'
+        ,vendors:'./src/core/vendors.js'
     },
     output:{
         path: path.join(__dirname,'build'),
@@ -46,6 +49,9 @@ module.exports = {
             {test: /\.(woff|woff2|ttf|eot|svg)(\?]?.*)?$/,
                 loader : 'file-loader?name=res/[name].[ext]?[hash]'
             },
+            {test: /index\.html$/,
+                loader : 'file-loader?name=[name].[ext]'
+            },
 
             {test: /\.html$/,
                 loader: 'raw'},
@@ -58,5 +64,9 @@ module.exports = {
     plugins: [
         extractSCSS,
         exportRunTimeVariable
+        ,new HtmlWebpackPlugin({
+            title: 'Timer Task'
+            //,filename: ''
+        })
     ]
 };
