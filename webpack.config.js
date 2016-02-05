@@ -36,6 +36,13 @@ module.exports = {
     },
     module:{
         loaders:[
+            /*
+                test: A condition that must be met
+                exclude: A condition that must not be met
+                include: A condition that must be met
+                loader: A string of "!" separated loaders
+                loaders: A array of loaders as string
+            */
             {test:/\.css$/,
                 loader:extractSCSS.extract('style-loader?sourceMap','css-loader!sass-loader')},
 
@@ -49,12 +56,13 @@ module.exports = {
             {test: /\.(woff|woff2|ttf|eot|svg)(\?]?.*)?$/,
                 loader : 'file-loader?name=res/[name].[ext]?[hash]'
             },
-            {test: /index\.html$/,
-                loader : 'file-loader?name=[name].[ext]'
-            },
+            //{test: /index\.html$/,
+            //    loader : 'file-loader?name=[name].[ext]'
+            //},
 
             {test: /\.html$/,
-                loader: 'raw'},
+                loader: 'raw'
+                ,exclude:[/index.html/]},
 
             {test: /\.json/,
                 loader: 'json'}
@@ -67,6 +75,7 @@ module.exports = {
         ,new HtmlWebpackPlugin({
             title: 'Timer Task'
             //,filename: ''
+            ,template: 'src/index.html'
         })
     ]
 };
