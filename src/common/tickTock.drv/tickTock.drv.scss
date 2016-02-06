@@ -1,0 +1,322 @@
+tick-tock {
+    display: inline-block;
+    position: relative;
+    perspective: 300px;
+    text-align: center;
+  width: 200px;
+
+  .circle {
+    position: absolute;
+    width: 156px;
+    height: 156px;
+    top: 72px;
+    left: 22px;
+    border-radius: 50%;
+    border: dashed 1px rgba(255, 255, 255, 0.72);
+    animation: spin-reversed 24s linear infinite;
+  }
+
+  .actual {
+    position: relative;
+    width: 100%;
+    height: 189px;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .lighting {
+    color: #FFF;
+    position: relative;
+    width: 100%;
+    height: 189px;
+    -webkit-filter: blur(12px);
+    transform-origin: 50% 100%;
+    transform: rotateX(270deg);
+  }
+
+  .reflection {
+    position: absolute;
+    width: 100%;
+    height: 189px;
+    overflow: hidden;
+    -webkit-filter: blur(2px);
+    //transform-origin: 50% 100%;
+    transform: rotateX(180deg);
+  }
+
+  #blurred {
+    -webkit-filter: blur(5px);
+  }
+
+  .gear1 {
+    position: absolute;
+    width: 78px;
+    height: 78px;
+    top: 36px;
+    left: 117px;
+    border-radius: 50%;
+    border: dashed 1px rgba(255, 255, 255, 0.2);
+    animation: spin 12s linear infinite;
+  }
+
+  .gear2 {
+    position: absolute;
+    width: 39px;
+    height: 39px;
+    top: 18px;
+    left: 186px;
+    border-radius: 50%;
+    border: dashed 1px rgba(255, 255, 255, 0.09);
+    animation: spin-reversed 6s linear infinite;
+
+  }
+
+  .slot span {
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 14px;
+    top: 11px;
+    border-radius: 50%;
+    border: dashed 1px #FFF;
+    animation: spin 6s linear infinite;
+
+  }
+
+  .slot span:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 12px;
+    height: 12px;
+    top: 4px;
+    left: 4px;
+    background: rgba(255, 255, 255, .9);
+    border-radius: 50%;
+  }
+
+  .box {
+    position: absolute;
+    /*left: 150px;*/
+    top: 0;
+    display: block;
+    width: 200px;
+  }
+
+  .box div {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    margin: 0 auto;
+  }
+
+  .fade {
+    position: absolute;
+    top: -11px;
+    width: 100%;
+    height: 200px;
+    background: -webkit-linear-gradient(
+                    bottom,
+                    rgba(0, 29, 34, 0) 0%,
+                    rgba(0, 29, 34, 1) 60%,
+                    rgba(0, 29, 34, 1) 100%
+    );
+  }
+
+  .wheel {
+    position: absolute;
+    /*left: 150px;*/
+    top: 50px;
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    animation: tick 2s infinite;
+  }
+
+  .slot {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 75px;
+    text-align: center;
+    line-height: 50px;
+    transform-origin: 50% 100px;
+  }
+
+  .slot:nth-child(1) {
+    transform: rotate(60deg);
+  }
+
+  .slot:nth-child(3) {
+    transform: rotate(120deg);
+  }
+
+  .slot:nth-child(5) {
+    transform: rotate(180deg);
+  }
+
+  .slot:nth-child(7) {
+    transform: rotate(240deg);
+  }
+
+  .slot:nth-child(9) {
+    transform: rotate(300deg);
+  }
+
+  .slot:nth-child(11) {
+    transform: rotate(360deg);
+  }
+
+  .slot:nth-child(13) {
+    transform: rotate(60deg);
+  }
+
+  .slit {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 75px;
+    color: rgba(123, 176, 211, 0.55);
+    transform-origin: 50% 100px;
+  }
+
+  .slit:nth-child(2) {
+    transform: rotate(30deg);
+  }
+
+  .slit:nth-child(4) {
+    transform: rotate(90deg);
+  }
+
+  .slit:nth-child(6) {
+    transform: rotate(150deg);
+  }
+
+  .slit:nth-child(8) {
+    transform: rotate(210deg);
+  }
+
+  .slit:nth-child(10) {
+    transform: rotate(270deg);
+  }
+
+  .slit:nth-child(12) {
+    transform: rotate(330deg);
+  }
+
+  .slit div {
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 3px;
+    top: 20px;
+    left: 17px;
+    border-radius: 50%;
+    background: rgba(27, 255, 255, 0.56);
+    animation: tock 2s infinite;
+  }
+
+  .slit div:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    top: 10px;
+    left: 7px;
+    background: inherit;
+  }
+
+  .slit div:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    top: -10px;
+    left: 7px;
+    background: inherit;
+  }
+}
+
+@-webkit-keyframes tick {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(60deg);
+  }
+  50% {
+    transform: rotate(60deg);
+  }
+  75% {
+    transform: rotate(120deg);
+  }
+  100% {
+    transform: rotate(120deg);
+  }
+}
+
+@-webkit-keyframes tock {
+  0% {
+    background: rgba(27, 255, 255, 0.15);
+    transform: rotate(0deg);
+  }
+  25% {
+    background: rgba(27, 255, 255, 0.56);
+    transform: rotate(90deg);
+  }
+  50% {
+    background: rgba(27, 255, 255, 0.56);
+    transform: rotate(90deg);
+  }
+  75% {
+    background: rgba(27, 255, 255, 0.15);
+    transform: rotate(180deg);
+  }
+  100% {
+    background: rgba(27, 255, 255, 0.15);
+    transform: rotate(180deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin-reversed {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes pendulum {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@font-face {
+  font-family: CodePro;
+  src: url("http://jasonpolito.com/CodePro.otf");
+
+}

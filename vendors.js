@@ -7,6 +7,7 @@ global._ = require('lodash/lodash.js');
 
 require('angular');
 global.moment = require('moment');
+require("moment-duration-format");
 
 /* angular vendors */
 require('ui-router');

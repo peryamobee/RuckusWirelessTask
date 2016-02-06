@@ -4,9 +4,6 @@
 require('./timer.drv.scss');
 
 module.exports = angular.module(__filename,[])
-    .run(function () {
-        console.log('timer run');
-    })
     .directive('timer',[function () {
 
         var _duration = Symbol("duration");
