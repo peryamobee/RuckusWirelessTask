@@ -2,7 +2,7 @@
  * Created by pery on 31/01/2016.
  */
 require('./TimerPage.scss');
-module.exports = angular.module(__filename, [
+module.exports = angular.module(module.id, [
     require('common/timer.drv/timer.drv.js').name
 ]);
 

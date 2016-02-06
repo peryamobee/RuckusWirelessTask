@@ -4,16 +4,18 @@
 require('./timer.drv.scss');
 
 module.exports = angular.module(__filename,[])
+    .run(function () {
+        console.log('common run');
+    })
     .directive('timer',[
         function () {
             return {
-                restrict: "E"
-                ,template:'10.10.10'
+                template:'10.10.10'
                 //,template:require('./timer.drv.html')
                 ,scope:{
                     
                 }
-                ,controller: function (scope) {
+                ,controller: function ($scope) {
                     function Timer(){
                         ga('create', 'UA-XXXXX-Y', 'auto', 'myTracker');
                     }
@@ -33,5 +35,7 @@ module.exports = angular.module(__filename,[])
             }
             
     }]);
+
+
 
 
