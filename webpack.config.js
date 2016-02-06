@@ -27,8 +27,8 @@ module.exports = {
         //root: __dirname + '/src'
     },
     entry:{
-        TimerApp:'./src/core/bootstrap.js'
-        ,vendors:'./src/core/vendors.js'
+        TimerApp:'./src/index.js'
+        ,vendors:'./vendors.js'
     },
     output:{
         path: path.join(__dirname,'build'),

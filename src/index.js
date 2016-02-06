@@ -1,11 +1,14 @@
 require('./index.scss');
 
+
+
 module.exports = angular.module('app', [
  'ui.router'
  ,'ui.router.stateHelper'
+  ,require('common/common.js').name
 ])
 .config(function (stateHelperProvider, $urlRouterProvider) {
-    var Timer = require('./pages/timer/timer.js').stateConfig;
+    var Timer = require('./pages/timerPage/timerPage.js').stateConfig;
     stateHelperProvider.state({
         name: "root",
         url: "^",
@@ -19,4 +22,11 @@ module.exports = angular.module('app', [
 })
 .run(function () {
 
+});
+
+
+angular.element(document).ready(function () {
+    angular.bootstrap(document, [module.exports.name], {
+        //strictDi: true
+    });
 });
