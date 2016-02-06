@@ -3,7 +3,13 @@
  */
 require('./simpleTimer.scss');
 
-function timerController(){
+function timerController($scope, $location, $timeout){
+    if('autostart' in $location.search()){
+        $timeout(function () {
+            $scope.timerCtrl.start();
+        })
+
+    }
 
 }
 
