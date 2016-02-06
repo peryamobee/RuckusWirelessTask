@@ -1,0 +1,27 @@
+<timer
+        duration="context.duration"
+        editor="timerCtrl"
+>timer inside</timer>
+
+<br>
+<control-pannel >
+
+    <button class="start-button"
+            ng-click="timerCtrl.start()">
+        <i class="fa fa-play fa-fw"></i>
+        start
+    </button>
+
+    <button class="reset-button"
+            ng-click="timerCtrl.pause()">
+        <i class="fa fa-pause fa-fw"></i>
+        pause
+    </button>
+
+    <button class="pause-button"
+            ng-click="timerCtrl.reset()">
+        <i class="fa fa-stop fa-fw"></i>
+
+        reset
+    </button>
+</control-pannel>

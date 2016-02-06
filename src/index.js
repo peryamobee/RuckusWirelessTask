@@ -1,6 +1,11 @@
 require('./index.scss');
 
 
+function baseController($scope, $location){
+    $scope.context = {
+        duration : $location.search().t
+    }
+}
 
 module.exports = angular.module('app', [
  'ui.router'
@@ -8,17 +13,18 @@ module.exports = angular.module('app', [
   ,require('common/common.js').name
 ])
 .config(function (stateHelperProvider, $urlRouterProvider) {
-   /* var Timer = require('./pages/timerPage/timerPage.js').stateConfig;
+    var timerPage = require('./pages/simpleTimer/simpleTimer.js').stateConfig;
     stateHelperProvider.state({
         name: "root",
         url: "^",
         abstract: true,
-        template: '<ui-view></ui-view>',
+        //template: '<ui-view>234234</ui-view>',
+        controller: baseController,
         children: [
-            Timer
+            timerPage
         ]
     }, "IgnoreRoot");
-    $urlRouterProvider.otherwise(Timer.url);*/
+    $urlRouterProvider.otherwise(timerPage.url);
 });
 
 angular.element(document).ready(function () {
