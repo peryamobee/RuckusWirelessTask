@@ -1,19 +1,27 @@
-= Introduction =
+Table test
+==========
+
+Introduction
+============
 Please write a small webapp called Timer (countdown).
 Example of usage: in a meeting, when each speaker is limited by time.
 
-= The Layout = 
+The Layout
+==========
 You have nothing on the screen except single input for user that can enter desired time (say 0:05:00) and 2 buttons labeled “Start” and “Reset”.
 
-= Requirements =
+Requirements
+============
 - AngularJS
 - Object Oriented Programming
 
- = Notes =
+ Notes 
+ =========
 - Assume you are developing this for the latest Chrome release, so no need to support old browsers.
 - We are looking for well written code broken into logical components that interact with each other.
 
-= Extra points (in any order) =
+ Extra points (in any order) 
+============================
 - Check Google Analytics (GA) API and add start event "_trackEvent('timer', 'start', time)". This requires you to create a new account with them to get tracking code.
 - Add an option to autostart timer from URL params. Ex.: "?t=0:15:00&autostart"
 - Accept different time formats: 15m, 15”, 15 min > 0:15:00 and same including seconds and hours.
