@@ -19,7 +19,7 @@ module.exports = angular.module('app', [
         ]
     }, "IgnoreRoot");
     $urlRouterProvider.otherwise(Timer.url);*/
-})
+});
 
 angular.element(document).ready(function () {
     angular.bootstrap(document, [module.exports.name], {

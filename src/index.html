@@ -5,13 +5,32 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
-<body>
+<body ng-init="context.duration='10:10:10'">
 
     <h1 class="elegantshadow">
         Timer (counterdown)
     </h1>
 
-    <input ng-model="context.duration">
+    <input ng-model="context.duration" placeholder="hours:minutes:secounds.milisecounds">
+    <br>
+    <control-pannel >
+
+        <button class="start-button" ng-click="context.duration='0:01:00'">
+            1 min
+        </button>
+
+        <button class="reset-button" ng-click="context.duration='0:05:00'">
+            5 min
+        </button>
+
+        <button class="pause-button" ng-click="context.duration='0:15:00'">
+            15 min
+        </button>
+
+        <button class="pause-button" ng-click="context.duration='0:30:00'">
+            30 min
+        </button>
+    </control-pannel>
     <hr>
     <timer
         duration="context.duration"
@@ -28,17 +47,19 @@
         </button>
 
         <button class="reset-button"
-                ng-click="timerCtrl.reset()">
+                ng-click="timerCtrl.pause()">
             <i class="fa fa-pause fa-fw"></i>
-            reset
+            pause
         </button>
 
         <button class="pause-button"
-                ng-click="timerCtrl.pause()">
+                ng-click="timerCtrl.reset()">
             <i class="fa fa-stop fa-fw"></i>
-            pause
+
+            reset
         </button>
     </control-pannel>
+
 
     <!--<ui-view></ui-view>-->
 </body>
