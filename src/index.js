@@ -20,38 +20,6 @@ module.exports = angular.module('app', [
     }, "IgnoreRoot");
     $urlRouterProvider.otherwise(Timer.url);*/
 })
-//.directive('timer',[
-//        function () {
-//            return {
-//                template:'10.10.10'
-//                //,template:require('./timer.drv.html')
-//                ,scope:{
-//
-//                }
-//                ,controller: function ($scope) {
-//                    function Timer(){
-//                        ga('create', 'UA-XXXXX-Y', 'auto', 'myTracker');
-//                    }
-//
-//                    Timer.prototype.start = function () {
-//                        ga('create', 'UA-XXXXX-Y', 'auto', 'start timer');
-//                    };
-//
-//                    Timer.prototype.stope = function () {
-//                        ga('create', 'UA-XXXXX-Y', 'auto', 'stop timter');
-//                        //_trackEvent('timer', 'start', time)
-//                    };
-//                }
-//                ,link: function (scope, element, attr, ctrls ) {
-//
-//                }
-//            }
-//
-//}])
-.run(function () {
-
-});
-
 
 angular.element(document).ready(function () {
     angular.bootstrap(document, [module.exports.name], {

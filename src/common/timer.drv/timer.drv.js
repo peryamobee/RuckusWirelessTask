@@ -3,9 +3,9 @@
  */
 require('./timer.drv.scss');
 
-module.exports = angular.module(__filename,[])
+module.exports = angular.module(module.id+'',[])
     .run(function () {
-        console.log('common run');
+        console.log('timer run');
     })
     .directive('timer',[
         function () {
