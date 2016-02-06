@@ -2,11 +2,44 @@
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <p class='fs-headline'>Icon Test: <i class="mdi mdi-twitter"></i> @Sh_McK</p>
-    <timer>timer inside</timer>
-    <ui-view></ui-view>
+
+    <h1 class="elegantshadow">
+        Timer (counterdown)
+    </h1>
+
+    <input ng-model="context.duration">
+    <hr>
+    <timer
+        duration="context.duration"
+        editor="timerCtrl"
+        >timer inside</timer>
+
+    <br>
+    <control-pannel >
+
+        <button class="start-button"
+                ng-click="timerCtrl.start()">
+            <i class="fa fa-play fa-fw"></i>
+            start
+        </button>
+
+        <button class="reset-button"
+                ng-click="timerCtrl.reset()">
+            <i class="fa fa-pause fa-fw"></i>
+            reset
+        </button>
+
+        <button class="pause-button"
+                ng-click="timerCtrl.pause()">
+            <i class="fa fa-stop fa-fw"></i>
+            pause
+        </button>
+    </control-pannel>
+
+    <!--<ui-view></ui-view>-->
 </body>
 </html>
