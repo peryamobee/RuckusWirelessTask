@@ -15,6 +15,9 @@ module.exports = angular.module(__filename,[])
                 //ga('create', 'UA-XXXXX-Y', 'auto', 'myTracker');
                 var me = this;
 
+                me.states = {
+                    paused:true
+                }
                 reset();
 
 
@@ -23,13 +26,11 @@ module.exports = angular.module(__filename,[])
                     start: restart
                     ,pause: pause
                     ,reset: reset
-                    ,states:{
-                        paused:true
-                    }
-                });
+                 });
 
                 function reset(){
                     me[_duration] =  moment.duration($scope.duration);
+                    me.states.paused = true;
                 }
 
                 function restart () {
@@ -52,8 +53,6 @@ module.exports = angular.module(__filename,[])
             }
             ,link: function (scope, element, attr, ctrl ) {
                 scope.editor = ctrl;
-
-
                 var $hours = element.find('.hours')
                     ,$minutes = element.find('.minutes')
                     ,$seconds = element.find('.seconds')
@@ -65,7 +64,6 @@ module.exports = angular.module(__filename,[])
                 scope.$watch('duration',function(){
                     ctrl.reset();
                 });
-
 
                 cycle();
 
@@ -87,11 +85,16 @@ module.exports = angular.module(__filename,[])
 
                 function renderTimer(time,prevTime){
                     var duration = ctrl[_duration];
-                    $hours.html( duration.hours() );
-                    $minutes.html( duration.minutes() );
-                    $seconds.html( duration.seconds() );
-                    miliSeconds.html( duration.milliseconds() );
+                    $hours.html( pad(duration.hours(),2) );
+                    $minutes.html( pad(duration.minutes(),2) );
+                    $seconds.html( pad(duration.seconds(),2) );
+                    miliSeconds.html( pad(duration.milliseconds(),3) );
 
+                }
+
+                function pad(num,padding){
+                   padding = '0'.repeat(padding);
+                   return (padding + num).slice(-padding.length);
                 }
 
             }
