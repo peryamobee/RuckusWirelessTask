@@ -11,13 +11,13 @@ module.exports = angular.module(__filename,[])
         return {
             require:'timer'
             ,template:require('./timer.drv.html')
-            ,controller: function ($scope) {
+            ,controller: function ($scope, $element, $attrs) {
                 //ga('create', 'UA-XXXXX-Y', 'auto', 'myTracker');
                 var me = this;
 
                 me.states = {
                     paused:true
-                }
+                };
                 reset();
 
 
@@ -49,7 +49,6 @@ module.exports = angular.module(__filename,[])
             ,scope:{
                 duration:'='
                 ,editor:'=?'
-
             }
             ,link: function (scope, element, attr, ctrl ) {
                 scope.editor = ctrl;
@@ -58,11 +57,12 @@ module.exports = angular.module(__filename,[])
                     ,$seconds = element.find('.seconds')
                     ,miliSeconds = element.find('.mili-seconds')
                 ;
-                var previousCycle = Date.now()
+                var previousCycle = Date.now();
+                var continueCycle ;
 
-                ;
                 scope.$watch('duration',function(){
                     ctrl.reset();
+                    renderTimer();
                 });
 
                 cycle();
@@ -70,9 +70,9 @@ module.exports = angular.module(__filename,[])
                 function cycle(){
                     var time = Date.now();
                     if( !ctrl.states.paused ){
-                        updateTimer(time, previousCycle)
+                        ctrl.states.paused =  !updateTimer(time, previousCycle);
+                        renderTimer(time, previousCycle);
                     }
-                    renderTimer(time, previousCycle);
                     previousCycle = time;
                     requestAnimationFrame(cycle);
                 }
@@ -81,6 +81,7 @@ module.exports = angular.module(__filename,[])
                     var timePass = time - prevTime;
                     var duration = ctrl[_duration];
                     duration.subtract(timePass,'milliseconds');
+                    return duration.as('milliseconds') > 0
                 }
 
                 function renderTimer(time,prevTime){
