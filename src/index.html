@@ -6,6 +6,14 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body >
+<menu>
+    <div>
+        <a href="#/timer">timer</a>
+    </div>
+    <div>
+        <a href="#/dual">dual</a>
+    </div>
+</menu>
 <ui-view>
     <h1 class="elegantshadow">
         Timer (counterdown)
@@ -15,26 +23,29 @@
     <br>
     <control-pannel >
 
-        <button class="start-button" ng-click="context.durationText='0:01:00'">
+        <button class="start-button" ng-click="context.duration='0:01:00'">
             1 min
         </button>
 
-        <button class="reset-button" ng-click="context.durationText='0:05:00'">
+        <button class="reset-button" ng-click="context.duration='0:05:00'">
             5 min
         </button>
 
-        <button class="pause-button" ng-click="context.durationText='0:15:00'">
+        <button class="pause-button" ng-click="context.duration='0:15:00'">
             15 min
         </button>
 
-        <button class="pause-button" ng-click="context.durationText='0:30:00'">
+        <button class="pause-button" ng-click="context.duration='0:30:00'">
             30 min
         </button>
     </control-pannel>
     <hr>
 
 
-    <tick-tock></tick-tock>
+    <tick-tock ng-class="{
+        start:context.timer.state.start,
+        pause:context.timer.state.paused,
+    }"></tick-tock>
     <ui-view>234234</ui-view>
 </ui-view>
 </body>

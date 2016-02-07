@@ -13,22 +13,20 @@ module.exports = angular.module(__filename,[
         }
         ,controllerAs:'TimerCtrl'
         ,scope:{
-            duration:'='
-            ,editor:'=?'
+            timer:'=timerModel'
         }
         ,link: function postLink(scope, element, attr) {
-            var timer = new Timer(attr.duration);
-            scope.editor = timer;
+
             var $hours = element.find('.hours')
                 ,$minutes = element.find('.minutes')
                 ,$seconds = element.find('.seconds')
                 ,miliSeconds = element.find('.mili-seconds')
                 ;
             scope.$watch('durationText',function(){
-                timer.setDuration(scope.duration)
+                scope.timer.setDuration(scope.duration)
             });
 
-            timer.onUpdate(renderTimer);
+            scope.timer.onUpdate(renderTimer);
 
             function renderTimer(duration){
                 $hours.html( pad(duration.hours(),2) );

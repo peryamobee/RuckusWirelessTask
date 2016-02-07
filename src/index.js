@@ -1,10 +1,19 @@
 require('./index.scss');
 
 
-function baseController($scope, $location){
-    $scope.context = {
-        duration : $location.search().t
+function baseController($scope, $location, Timer){
+    var duration = $location.search().t;
+    var context = $scope.context = {
+        duration : duration,
+        timer : new Timer(duration)
+    };
+
+    if('autostart' in $location.search()){
+        context.timer.start();
     }
+    $scope.$watch('context.duration', function (nv) {
+        context.timer.setDuration(nv);
+    })
 }
 
 module.exports = angular.module('app', [
@@ -14,6 +23,7 @@ module.exports = angular.module('app', [
 ])
 .config(function (stateHelperProvider, $urlRouterProvider) {
     var timerPage = require('./pages/simpleTimer/simpleTimer.js').stateConfig;
+    var dualPage = require('./pages/dualTimer/dualTimer.js').stateConfig;
     stateHelperProvider.state({
         name: "root",
         url: "^",
@@ -21,7 +31,8 @@ module.exports = angular.module('app', [
         //template: '<ui-view>234234</ui-view>',
         controller: baseController,
         children: [
-            timerPage
+            timerPage,
+            dualPage
         ]
     }, "IgnoreRoot");
     $urlRouterProvider.otherwise(timerPage.url);

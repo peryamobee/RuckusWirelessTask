@@ -6,6 +6,37 @@ tick-tock {
   width: 200px;
   background-color: inherit;
 
+  .wheel,.circle,.gear1,.gear2,
+  .slot span,.slit div{
+    animation-play-state: paused !important;
+  }
+  &.start{
+    .wheel,.circle,.gear1,.gear2,
+    .slot span,.slit div{
+      animation-play-state: running !important;
+    }
+  }
+  &.start,&.pause{
+    .wheel{
+      animation: tick 2s infinite;
+    }
+    .circle{
+      animation: spin-reversed 24s linear infinite;
+    }
+    .gear1{
+      animation: spin 12s linear infinite;
+    }
+    .gear2{
+      animation: spin-reversed 6s linear infinite;
+    }
+    .slot span{
+      animation: spin 6s linear infinite;
+    }
+    .slit div{
+      animation: tock 2s infinite;
+    }
+  }
+
   .circle {
     position: absolute;
     width: 156px;
@@ -14,7 +45,7 @@ tick-tock {
     left: 22px;
     border-radius: 50%;
     border: dashed 1px rgba(255, 255, 255, 0.72);
-    animation: spin-reversed 24s linear infinite;
+    //animation: spin-reversed 24s linear infinite;
   }
 
   .actual {
@@ -57,7 +88,7 @@ tick-tock {
     left: 117px;
     border-radius: 50%;
     border: dashed 1px rgba(255, 255, 255, 0.2);
-    animation: spin 12s linear infinite;
+    //animation: spin 12s linear infinite;
   }
 
   .gear2 {
@@ -68,7 +99,7 @@ tick-tock {
     left: 186px;
     border-radius: 50%;
     border: dashed 1px rgba(255, 255, 255, 0.09);
-    animation: spin-reversed 6s linear infinite;
+    //animation: spin-reversed 6s linear infinite;
 
   }
 
@@ -81,7 +112,7 @@ tick-tock {
     top: 11px;
     border-radius: 50%;
     border: dashed 1px #FFF;
-    animation: spin 6s linear infinite;
+    //animation: spin 6s linear infinite;
 
   }
 
@@ -134,7 +165,7 @@ tick-tock {
     width: 200px;
     height: 200px;
     margin: 0 auto;
-    animation: tick 2s infinite;
+    //animation: tick 2s infinite;
   }
 
   .slot {
@@ -219,7 +250,7 @@ tick-tock {
     left: 17px;
     border-radius: 50%;
     background: rgba(27, 255, 255, 0.56);
-    animation: tock 2s infinite;
+    //animation: tock 2s infinite;
   }
 
   .slit div:after {

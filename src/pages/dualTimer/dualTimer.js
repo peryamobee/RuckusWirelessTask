@@ -1,10 +1,10 @@
 /**
  * Created by pery on 31/01/2016.
  */
-require('./simpleTimer.scss');
+require('./dualTimer.scss');
 
 function timerController($scope, $location, $timeout, Timer){
-   /* var context = $scope.context;
+    var context = $scope.context;
     var timer = context.timer = new Timer(context.duration);
 
     if('autostart' in $location.search()){
@@ -13,13 +13,13 @@ function timerController($scope, $location, $timeout, Timer){
     $scope.$watch('context.duration', function (nv) {
         timer.setDuration(nv);
     })
-*/
+
 }
 
 module.exports.stateConfig = {
-    name:"timer",
-    url:"/timer",
+    name:"dual",
+    url:"/dual",
     abstract:false,
-    template: require("./simpleTimer.html"),
+    template: require("./dualTimer.html"),
     controller: timerController
 };
