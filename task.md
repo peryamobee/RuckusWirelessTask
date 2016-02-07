@@ -8,7 +8,8 @@ Example of usage: in a meeting, when each speaker is limited by time.
 
 The Layout
 ==========
-You have nothing on the screen except single input for user that can enter desired time (say 0:05:00) and 2 buttons labeled “Start” and “Reset”.
+You have nothing on the screen except single input for user that can enter desired time (say 0:05:00)
+and 2 buttons labeled “Start” and “Reset”.
 
 Requirements
 ============
@@ -27,7 +28,8 @@ x Add an option to autostart timer from URL params. Ex.: "?t=0:15:00&autostart"
 - Accept different time formats: 15m, 15”, 15 min > 0:15:00 and same including seconds and hours.
 x Add predefined buttons timers: 1, 5, 15, 30 min. Add GA events for them if you added analytics.
 - Nice looking UI.
-- Adding visual effect for timer complete and running. Extra bonus: foreground and background status.
+x Adding visual effect for timer complete and running.
+ Extra bonus: foreground and background status.
 x Visual presentation of remaining time.
 - Unit tests.
 
