@@ -2,7 +2,7 @@
  * Created by pery on 07/02/2016.
  */
 module.exports = angular.module(__filename,[])
-    .factory('Timer', function () {
+    .factory('Timer', function ($rootScope,$timeout) {
         var _duration = Symbol('_duration');
         var _on = Symbol('_on');
         var _emit = Symbol('_emit');
@@ -12,12 +12,12 @@ module.exports = angular.module(__filename,[])
             this[_on]= {};
             this[_emit]= {};
             this.state = {
-                 paused : true
+                 pause : true
             };
             var previousCycle = new Date();
 
             /*generet events code*/
-            var events = 'start,pause,reset,setduration,update'.split(',');
+            var events = 'start,pause,reset,setduration,update,timeEnd'.split(',');
             events.forEach(function (eventName) {
                 var queue = me[_on][eventName] = [];
                 /*listeners*/
@@ -39,18 +39,23 @@ module.exports = angular.module(__filename,[])
             }
 
             function updateTimer(time,prevTime){
-                if(me.state.paused) return ;
+                if(me.state.pause) return ;
+                if(me.state.stop) return ;
 
                 var timePass = time - prevTime;
                 var duration = me[_duration];
                 duration.subtract(timePass,'milliseconds');
                 if( duration.asMilliseconds() <= 0 ){
                     duration.add(- duration.asMilliseconds() );
-                    this.pause();
+                    me.pause();
+                    me.state.timeEnd = true;
+                    me.state.stop = true;
+                    me[_emit].timeEnd(duration)
                 }
-                me[_emit].update(duration)
+                me[_emit].update(duration);
 
-
+                //!$rootScope.$$phase && $rootScope.$digest(); //bad way
+                $timeout()//good way
             }
         }
         var events = 'reset'.split(',');
@@ -58,6 +63,8 @@ module.exports = angular.module(__filename,[])
             setDuration: function setDuration( durationText ) {
                 this.durationText = durationText ||  this.durationText;
                 this[_duration] =  moment.duration( this.durationText );
+                /*state*/
+                this.state.timeEnd = false;
                 /*event*/
                 this[_emit].setduration( this[_duration] );
                 this[_emit].update( this[_duration] )
@@ -65,8 +72,9 @@ module.exports = angular.module(__filename,[])
             start: function start(){
                 /*state*/
                 this.state.start = true;
-                this.state.paused = false;
-                this.state.stope = false;
+                this.state.pause = false;
+                this.state.stop = false;
+                this.state.timeEnd = false;
                 /*event*/
                 this[_emit].start( this[_duration] );
 
@@ -76,8 +84,9 @@ module.exports = angular.module(__filename,[])
                 //_trackEvent('timer', 'start', time)
                 /*state*/
                 this.state.start = false;
-                this.state.paused = true;
-                this.state.stope = false;
+                this.state.pause = true;
+                this.state.stop = false;
+                this.state.timeEnd = false;
                 /*event*/
                 this[_emit].pause( this[_duration] );
             },
@@ -85,8 +94,9 @@ module.exports = angular.module(__filename,[])
                 this.setDuration();
                 /*state*/
                 this.state.start = false;
-                this.state.paused = false;
-                this.state.stope = true;
+                this.state.pause = true;
+                this.state.stop = true;
+                this.state.timeEnd = false;
 
                 this[_emit].reset( this[_duration] );
             },

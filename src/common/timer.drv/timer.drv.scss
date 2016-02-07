@@ -5,4 +5,14 @@ timer{
   font-size: 6em;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 
+  &.finish{
+    animation: shoutdown  0.4s ;
+    animation-fill-mode: both;
+  }
+}
+
+@keyframes shoutdown {
+  100% {
+    transform: scaleY(0) scaleX(1.3);
+  }
 }
