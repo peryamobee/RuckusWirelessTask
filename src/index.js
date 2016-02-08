@@ -2,8 +2,10 @@ require('./index.scss');
 
 
 function baseController($scope, $location){
+    var duration = $location.search().t;
     $scope.context = {
-        duration : $location.search().t
+        duration : duration,
+        //timer : new Timer(duration)
     }
 }
 

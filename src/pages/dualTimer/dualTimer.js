@@ -4,9 +4,12 @@
 require('./dualTimer.scss');
 
 function timerController($scope, $timeout,Loger){
-    if('autostart' in $location.search()){
-        $timeout(function () {
-            $scope.timerCtrl.start();
+
+    var startDuration =
+    function addLog(){
+        Loger.add({
+            player:0,
+            duration:
         })
     }
 }
