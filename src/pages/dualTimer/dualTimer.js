@@ -3,16 +3,32 @@
  */
 require('./dualTimer.scss');
 
-function timerController($scope, $location, $timeout, Timer){
-    var context = $scope.context;
-    var timer = context.timer = new Timer(context.duration);
+function timerController($scope, $location, Loger, Timer){
 
-    if('autostart' in $location.search()){
-        timer.start();
+    var player1 = 'player1';
+    var player2 = 'player2';
+    var currentPlayer = player1;
+    var startingTime = null;
+
+    var context = $scope.context;
+
+    $scope.switchPlayer = switchPlayer;
+    $scope.Loger = Loger;
+
+    function switchPlayer(){
+        context.timer.start();
+        var now = context.timer.getDuration();
+        if( startingTime ){
+            Loger.add({
+                [currentPlayer]:{
+                    duration:startingTime.subtract(now).format('mm [min] ss [sec]'),
+                    startTime:now.format()
+                }
+            });
+        }
+        currentPlayer = (currentPlayer == player1)?player2: player1;
+        startingTime = moment.duration(now);
     }
-    $scope.$watch('context.duration', function (nv) {
-        timer.setDuration(nv);
-    })
 
 }
 

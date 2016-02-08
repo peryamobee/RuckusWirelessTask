@@ -1,3 +1,19 @@
 <timer timer-model="context.timer">timer inside</timer>
 
-<br
+<br>
+
+<button ng-click="switchPlayer()">switch player</button>
+
+<div>
+    <div ng-repeat="log in  Loger.list()">
+        <span class="player-1">
+            <span ng-bind="log.player1.startTime">player1 start time</span>
+            <span ng-bind="log.player1.duration">player1 duration</span>
+        </span>
+
+        <span class="player-2">
+            <span ng-bind="log.player2.startTime">player2 start time</span>
+            <span ng-bind="log.player2.duration">player2 duration</span>
+        </span>
+    </div>
+</div>
