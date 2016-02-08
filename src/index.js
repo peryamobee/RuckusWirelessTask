@@ -14,7 +14,7 @@ module.exports = angular.module('app', [
 ])
 .config(function (stateHelperProvider, $urlRouterProvider) {
     var timerPage = require('./pages/simpleTimer/simpleTimer.js').stateConfig;
-    var dualPage = require('./pages/dualPage/dualTimer').stateConfig;
+    var dualPage = require('./pages/dualTimer/dualTimer').stateConfig;
     stateHelperProvider.state({
         name: "root",
         url: "^",
