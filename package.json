@@ -10,7 +10,7 @@
     "test": "set NODE_ENV=test karma start",
     "test:live": "set NODE_ENV=test && karma start --auto-watch --no-single-run",
     "build": "webpack --colors --watch --optimize-dedupe",
-    "start": "set NODE_ENV=development && webpack-dev-server -d --hot",
+    "start": "set NODE_ENV=development && webpack-dev-server -d --hot --port 4040",
     "deploy": "set NODE_ENV=production && webpack -p --optimize-dedupe",
     "deploy:debug": "set NODE_ENV=production && webpack -p --devtool source-map"
   },

@@ -14,6 +14,7 @@ module.exports = angular.module('app', [
 ])
 .config(function (stateHelperProvider, $urlRouterProvider) {
     var timerPage = require('./pages/simpleTimer/simpleTimer.js').stateConfig;
+    var dualPage = require('./pages/dualPage/dualTimer').stateConfig;
     stateHelperProvider.state({
         name: "root",
         url: "^",
@@ -21,7 +22,8 @@ module.exports = angular.module('app', [
         //template: '<ui-view>234234</ui-view>',
         controller: baseController,
         children: [
-            timerPage
+            timerPage,
+            dualPage
         ]
     }, "IgnoreRoot");
     $urlRouterProvider.otherwise(timerPage.url);
