@@ -7,28 +7,30 @@
     <button ng-click="switchPlayer()">switch player</button>
 
     <div>
-        <h3 class="player-1">player 1
-           <span class="start-time">start</span>
-           <span class="duration-time">druation</span>
+        <h3 class="player-1">
+            <div class="player-name">player 1</div>
+           <div class="start-time">start</div>
+           <div class="duration-time">druation</div>
         </h3>
         <h3 class="player-2">
-            <span class="start-time">start</span>
-            <span class="duration-time">druation</span>
+            <div class="player-name">player 2</div>
+            <div class="start-time">start</div>
+            <div class="duration-time">druation</div>
         </h3>
         <div class="log" ng-repeat="log in  Loger.list()">
-            <span class="player-1">
+            <div class="player-1">
                 <span class="start-time"
                       ng-bind="log.player1.startTime">player1 start time</span>
                 <span class="duration-time"
                       ng-bind="log.player1.duration">player1 duration</span>
-            </span>
+            </div>
 
-            <span class="player-2">
+            <div class="player-2">
                 <span class="start-time"
                         ng-bind="log.player2.startTime">player2 start time</span>
                 <span class="duration-time"
                         ng-bind="log.player2.duration">player2 duration</span>
-            </span>
+            </div>
         </div>
     </div>
 </div>

@@ -1,39 +1,48 @@
 .dual-timer{
   h3{
-    padding: 0 1em;
+    margin: 0 1rem;
   }
   .player-1,.player-2{
-
-    width: 20em;
+    width: 20rem;
+    font-size: 20px;
   }
 
   .player-1{
     float: left;
-    background-color: brown;
   }
 
   .player-2{
     float: right;
-    background-color: sandybrown;
+  }
+
+  .player-name{
+
   }
 
   .log{
     overflow: hidden;
     clear: both;
     font-family: "Times New Roman";
-    padding: 0 1em;
+    padding: 0 1rem;
     border-bottom:1px solid ;
+  }
 
+  .log:nth-child(odd){
+    background-color: #e7e5e4;
+  }
+  .log:nth-child(even){
+    background-color: rgba(216, 215, 211, 1);
   }
 
   .start-time{
-      float: left;
-
+    float: left;
+    letter-spacing: 2px;
 
   }
 
   .duration-time{
     float: right;
+    letter-spacing: 2px;
   }
 
 
