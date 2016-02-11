@@ -69,6 +69,9 @@ module.exports = angular.module(__filename,[])
                 this[_emit].setduration( this[_duration] );
                 this[_emit].update( this[_duration] )
             },
+            getDuration:function getDuration(){
+                return this[_duration];
+            },
             start: function start(){
                 /*state*/
                 this.state.start = true;

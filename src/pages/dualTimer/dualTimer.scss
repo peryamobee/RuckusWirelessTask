@@ -1,0 +1,40 @@
+.dual-timer{
+  h3{
+    padding: 0 1em;
+  }
+  .player-1,.player-2{
+
+    width: 20em;
+  }
+
+  .player-1{
+    float: left;
+    background-color: brown;
+  }
+
+  .player-2{
+    float: right;
+    background-color: sandybrown;
+  }
+
+  .log{
+    overflow: hidden;
+    clear: both;
+    font-family: "Times New Roman";
+    padding: 0 1em;
+    border-bottom:1px solid ;
+
+  }
+
+  .start-time{
+      float: left;
+
+
+  }
+
+  .duration-time{
+    float: right;
+  }
+
+
+}
