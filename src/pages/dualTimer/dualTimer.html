@@ -1,36 +1,33 @@
 <div class="dual-timer">
-
-    <timer timer-model="context.timer">timer inside</timer>
-
-    <br>
-
-    <button ng-click="switchPlayer()">switch player</button>
+    <button class="switch-player-button"
+            ng-click="switchPlayer()">
+        switch
+        <br>
+        <timer timer-model="context.timer">timer inside</timer>
+    </button>
 
     <div>
         <h3 class="player-1">
             <div class="player-name">player 1</div>
            <div class="start-time">start</div>
-           <div class="duration-time">druation</div>
+           <div class="duration-time">duration</div>
         </h3>
         <h3 class="player-2">
             <div class="player-name">player 2</div>
             <div class="start-time">start</div>
-            <div class="duration-time">druation</div>
+            <div class="duration-time">duration</div>
         </h3>
         <div class="log" ng-repeat="log in  Loger.list()">
-            <div class="player-1">
+            <div ng-class="{'player-1':log.name == 'player1','player-2':log.name == 'player2'}">
                 <span class="start-time"
-                      ng-bind="log.player1.startTime">player1 start time</span>
+                      ng-bind="log.startTime">player1 start time</span>
+                <span ng-if="!log.player2.duration">
+                    <timer timer-model="context.timer">timer inside</timer>
+                </span>
                 <span class="duration-time"
                       ng-bind="log.player1.duration">player1 duration</span>
             </div>
 
-            <div class="player-2">
-                <span class="start-time"
-                        ng-bind="log.player2.startTime">player2 start time</span>
-                <span class="duration-time"
-                        ng-bind="log.player2.duration">player2 duration</span>
-            </div>
         </div>
     </div>
 </div>

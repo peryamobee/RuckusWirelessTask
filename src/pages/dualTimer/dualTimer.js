@@ -7,27 +7,45 @@ function timerController($scope, $location, Loger, Timer){
 
     var player1 = 'player1';
     var player2 = 'player2';
-    var currentPlayer = player1;
+    var currentPlayer = null;
     var startingTime = null;
 
     var context = $scope.context;
 
-    $scope.switchPlayer = switchPlayer;
+    $scope.switchPlayer = startTimer;
     $scope.Loger = Loger;
 
-    function switchPlayer(){
+    function startTimer(){
         context.timer.start();
+        startingTime = moment.duration( context.timer.getDuration() );
+        currentPlayer = {
+            name:player1,
+            startTime: startingTime.format()
+        };
+        Loger.add(currentPlayer);
+
+        $scope.switchPlayer = switchPlayer;
+    }
+
+    function nextPlayer(){
+        nextPlayer.prevPlayer = nextPlayer.prevPlayer?player1:player2;
+        return nextPlayer.prevPlayer;
+    }
+
+    function switchPlayer(){
+        var prevPlayer = currentPlayer;
         var now = context.timer.getDuration();
-        if( startingTime ){
-            Loger.add({
-                [currentPlayer]:{
-                    duration:startingTime.subtract(now).format('mm [min] ss [sec]'),
-                    startTime:now.format()
-                }
-            });
-        }
-        currentPlayer = (currentPlayer == player1)?player2: player1;
-        startingTime = moment.duration(now);
+        prevPlayer.duration = startingTime.subtract(now).format('mm [min] ss [sec]');
+        startingTime = moment.duration( now );
+
+        currentPlayer = {
+            name:player1,
+            startTime:now
+        };
+        Loger.add(currentPlayer);
+
+        //currentPlayer = (currentPlayer == player1)?player2: player1;
+
     }
 
 }

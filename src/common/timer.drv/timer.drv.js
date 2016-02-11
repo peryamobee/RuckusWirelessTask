@@ -13,7 +13,8 @@ module.exports = angular.module(__filename,[
         }
         ,controllerAs:'TimerCtrl'
         ,scope:{
-            timer:'=timerModel'
+            timer:'=timerModel',
+            withMiliSeconds:'=?'
         }
         ,link: function postLink(scope, element, attr) {
 
@@ -26,19 +27,23 @@ module.exports = angular.module(__filename,[
                 scope.timer.setDuration(scope.duration)
             });
 
-            scope.timer.onUpdate(renderTimer);
+            scope.toggleMiliSeconds = toggleMiliSeconds;
 
+            scope.timer.onUpdate(renderTimer);
             function renderTimer(duration){
                 $hours.html( pad(duration.hours(),2) );
                 $minutes.html( pad(duration.minutes(),2) );
                 $seconds.html( pad(duration.seconds(),2) );
                 miliSeconds.html( pad(duration.milliseconds(),3) );
-
             }
 
             function pad(num,padding){
                 padding = '0'.repeat(padding);
                 return (padding + num).slice(-padding.length);
+            }
+
+            function toggleMiliSeconds(){
+                scope.withMiliSeconds != scope.withMiliSeconds;
             }
 
         }
