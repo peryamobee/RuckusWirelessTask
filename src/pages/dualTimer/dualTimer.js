@@ -5,12 +5,16 @@ require('./dualTimer.scss');
 
 function timerController($scope, $location, Loger, Timer){
 
+    var context = $scope.context;
     var player1 = 'player1';
     var player2 = 'player2';
     var currentLog = null;
     var startingTime = null;
+    var durationOption = {
+        trim:false,
+        template:'hh:mm:ss'
+    };
 
-    var context = $scope.context;
 
     $scope.switchPlayer = startTimer;
     $scope.Loger = Loger;
@@ -20,7 +24,9 @@ function timerController($scope, $location, Loger, Timer){
         startingTime = moment.duration( context.timer.getDuration() );
         currentLog = {
             name: player1,
-            startTime: startingTime.format()
+            startTime: startingTime.format( durationOption ),
+            endTime:'in progress',
+            duration:'calculate'
         };
         Loger.add( currentLog );
 
@@ -33,15 +39,15 @@ function timerController($scope, $location, Loger, Timer){
     }
 
     function switchPlayer(){
-        var prevLog = currentLog;
         var now = context.timer.getDuration();
-        prevLog.endTime = now.format();
+        var prevLog = currentLog;
+        prevLog.endTime = now.format( durationOption );
         prevLog.duration = startingTime.subtract(now).format('mm [min] ss [sec]');
         startingTime = moment.duration( now ); // make a copy;
 
         currentLog = {
-            name:player1,
-            startTime:now
+            name:nextPlayer(),
+            startTime:now.format(durationOption)
         };
         Loger.add(currentLog);
 

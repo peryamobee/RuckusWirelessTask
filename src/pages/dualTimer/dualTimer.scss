@@ -29,6 +29,8 @@
     font-size: 20px;
     div{
       display: inline-block;
+      width: 25%;
+      float: left;
     }
   }
 
@@ -36,11 +38,12 @@
     overflow: hidden;
     clear: both;
     font-family: "Times New Roman";
-    padding: 0 1rem;
     border-bottom:1px solid ;
 
     div{
       display: inline-block;
+      width: 25%;
+      float: left;
     }
   }
 
@@ -51,13 +54,14 @@
     background-color: rgba(216, 215, 211, 1);
   }
 
+
+
   .player-name{
 
   }
 
   .start-time{
     letter-spacing: 2px;
-
   }
 
   .duration-time{
