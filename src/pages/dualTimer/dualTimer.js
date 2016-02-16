@@ -7,7 +7,7 @@ function timerController($scope, $location, Loger, Timer){
 
     var player1 = 'player1';
     var player2 = 'player2';
-    var currentPlayer = null;
+    var currentLog = null;
     var startingTime = null;
 
     var context = $scope.context;
@@ -18,11 +18,11 @@ function timerController($scope, $location, Loger, Timer){
     function startTimer(){
         context.timer.start();
         startingTime = moment.duration( context.timer.getDuration() );
-        currentPlayer = {
-            name:player1,
+        currentLog = {
+            name: player1,
             startTime: startingTime.format()
         };
-        Loger.add(currentPlayer);
+        Loger.add( currentLog );
 
         $scope.switchPlayer = switchPlayer;
     }
@@ -33,16 +33,17 @@ function timerController($scope, $location, Loger, Timer){
     }
 
     function switchPlayer(){
-        var prevPlayer = currentPlayer;
+        var prevLog = currentLog;
         var now = context.timer.getDuration();
-        prevPlayer.duration = startingTime.subtract(now).format('mm [min] ss [sec]');
-        startingTime = moment.duration( now );
+        prevLog.endTime = now.format();
+        prevLog.duration = startingTime.subtract(now).format('mm [min] ss [sec]');
+        startingTime = moment.duration( now ); // make a copy;
 
-        currentPlayer = {
+        currentLog = {
             name:player1,
             startTime:now
         };
-        Loger.add(currentPlayer);
+        Loger.add(currentLog);
 
         //currentPlayer = (currentPlayer == player1)?player2: player1;
 

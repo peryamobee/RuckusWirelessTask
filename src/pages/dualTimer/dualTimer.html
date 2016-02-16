@@ -7,27 +7,24 @@
     </button>
 
     <div>
-        <h3 class="player-1">
-            <div class="player-name">player 1</div>
+        <h3 class="header">
+           <div class="player-name">name</div>
            <div class="start-time">start</div>
+           <div class="end-time">end</div>
            <div class="duration-time">duration</div>
         </h3>
-        <h3 class="player-2">
-            <div class="player-name">player 2</div>
-            <div class="start-time">start</div>
-            <div class="duration-time">duration</div>
-        </h3>
         <div class="log" ng-repeat="log in  Loger.list()">
-            <div ng-class="{'player-1':log.name == 'player1','player-2':log.name == 'player2'}">
-                <span class="start-time"
-                      ng-bind="log.startTime">player1 start time</span>
-                <span ng-if="!log.player2.duration">
-                    <timer timer-model="context.timer">timer inside</timer>
-                </span>
-                <span class="duration-time"
-                      ng-bind="log.player1.duration">player1 duration</span>
-            </div>
+            <div class="player-name"
+                 ng-bind="log.startTime">player start time</div>
 
+            <div class="start-time"
+                 ng-bind="log.startTime">player start time</div>
+
+            <div class="end-time"
+                 ng-bind="log.endTime">player end time</div>
+
+            <div class="duration-time"
+                 ng-bind="log.duration">player duration</div>
         </div>
     </div>
 </div>

@@ -1,9 +1,7 @@
 .dual-timer{
   margin-right: 11rem;
-
-  h3{
-    margin: 0 1rem;
-  }
+  width: 20em;
+  margin: 0 auto;
 
   timer{
     font-size:15px;
@@ -11,9 +9,9 @@
   }
   .switch-player-button{
     height: 10rem;
-    position: absolute;
+    /* position: absolute; */
     width: 240px;
-    margin: 10px auto;
+    /* margin: 10px auto; */
     padding: 10px 8px 10px 8px;
     border-radius: 5px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
@@ -21,26 +19,17 @@
     line-height: 16px;
     /* opacity: 0.5; */
     transition: all 0.1s linear;
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
     font-size: 20px;
     font-family: sans-serif;
   }
 
-  .player-1,.player-2{
+  .header{
     width: 20rem;
     font-size: 20px;
-  }
-
-  .player-1{
-    float: left;
-  }
-
-  .player-2{
-    float: right;
-  }
-
-  .player-name{
-
+    div{
+      display: inline-block;
+    }
   }
 
   .log{
@@ -49,6 +38,10 @@
     font-family: "Times New Roman";
     padding: 0 1rem;
     border-bottom:1px solid ;
+
+    div{
+      display: inline-block;
+    }
   }
 
   .log:nth-child(odd){
@@ -58,14 +51,16 @@
     background-color: rgba(216, 215, 211, 1);
   }
 
+  .player-name{
+
+  }
+
   .start-time{
-    float: left;
     letter-spacing: 2px;
 
   }
 
   .duration-time{
-    float: right;
     letter-spacing: 2px;
   }
 
