@@ -10,6 +10,7 @@ module.exports = angular.module(__filename, [
     ,require('./timer.drv/timer.fct').name
     ,require('./loger.srv/loger.srv').name
     ,require('./context.srv/context.srv').name
+    ,require('./toggle.drv/toggle').name
 
 ])
     .run(function () {

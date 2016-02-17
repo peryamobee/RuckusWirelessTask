@@ -1,0 +1,50 @@
+$switch-height: 21px;
+$toggle-vert-paddding: 3px;
+
+switch{
+  box-sizing: content-box;
+  position: relative;
+  display: inline-block;
+  width: 57px;
+  //color: $click-color;
+  height: $switch-height;
+  border: #292f34 solid 1px;
+  background: #151719;
+  box-shadow: inset 0 2px 1px -2px #292f34;
+  cursor: pointer;
+  font-size: 12px;
+  span {
+    display: inline-block;
+    width: 17px;
+    text-align: center;
+    line-height: $switch-height + 1px;
+  }
+  span.On {
+    color: #dddee1;
+    width: 31px;
+  }
+  .Toggle {
+    position: absolute;
+    top: $toggle-vert-paddding;
+    width: 23px;
+    height: $switch-height - 2 * $toggle-vert-paddding;
+    border-radius: 2px;
+    background: #434d54;
+
+    z-index: 1;
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    -ms-transition: all 0.15s ease-in-out;
+  }
+  &[disabled] {
+    background-color: #363a3d;
+  }
+
+  &.Off .Toggle {
+    left: 6%;
+  }
+  &.On .Toggle {
+    left: 54%;
+  }
+}
