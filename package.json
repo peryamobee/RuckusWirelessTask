@@ -12,7 +12,8 @@
     "build": "webpack --colors --watch --optimize-dedupe",
     "start": "set NODE_ENV=development && webpack-dev-server -d --hot --port 4040",
     "deploy": "set NODE_ENV=production && webpack -p --optimize-dedupe",
-    "deploy:debug": "set NODE_ENV=production && webpack -p --devtool source-map"
+    "deploy:debug": "set NODE_ENV=production && webpack -p --devtool source-map",
+    "postinstall":"bower install"
   },
   "dependencies": {
     "angular": "^1.4.9",

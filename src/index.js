@@ -1,12 +1,14 @@
 require('./index.scss');
 
 
-function baseController($scope, $location, Timer){
+function baseController($scope, $location, Timer, context){
     var duration = $location.search().t;
-    var context = $scope.context = {
+    $scope.context = context;
+
+    context.extend ({
         duration : duration,
         timer : new Timer(duration)
-    };
+    });
 
     if('autostart' in $location.search()){
         context.timer.start();

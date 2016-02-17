@@ -9,6 +9,7 @@ module.exports = angular.module(__filename, [
     ,require('./tickTock.drv/tickTock.drv').name
     ,require('./timer.drv/timer.fct').name
     ,require('./loger.srv/loger.srv').name
+    ,require('./context.srv/context.srv').name
 
 ])
     .run(function () {
