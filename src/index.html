@@ -18,9 +18,11 @@
     <h1 class="elegantshadow">
         Timer (counterdown)
     </h1>
-    <div class="edit-timer open" >
+    <div class="edit-timer" ng-class="{open:!context.timer.state.setted}">
         <div class="container " >
-            <input ng-model="context.duration" placeholder="hours:minutes:secounds.milisecounds">
+            <input ng-model="context.duration"
+                   ng-model-options="{updateOn:'blur'}"
+                   placeholder="hours:minutes:secounds.milisecounds">
             <control-pannel >
 
                 <button class="start-button" ng-click="context.duration='0:01:00'">

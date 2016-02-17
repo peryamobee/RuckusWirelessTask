@@ -24,39 +24,45 @@
     font-family: sans-serif;
   }
 
+  .log-table{
+    min-height: 30em;
+    background-color: rgba(0, 0, 0, 0.1);
+
   .header{
     font-size: 20px;
+    border-bottom: 1px solid;
+    margin-bottom: 0.4em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55),
+                0px 1px 1px rgba(255, 255, 255, 0.5)
   }
 
-  .header, .log{
-    display: flex;
-    div{
-      display: inline-block;
-      float: left;
-      padding: 0 0.5em;
-      flex:1;
+    .header, .log{
+       display: flex;
+       div{
+         display: inline-block;
+         float: left;
+         padding: 0 0.5em;
+         flex:1;
+       }
+     }
+    .log{
+      overflow: hidden;
+      clear: both;
+      font-family: "Times New Roman";
+
+    }
+    .log:nth-last-child(odd){
+      background-color: #e7e5e4;
+      border-bottom: 1px solid rgba(0,0,0,0.4);
+    }
+    .log:nth-last-child(even){
+      background-color: rgba(216, 215, 211, 1);
+      border-top: 1px solid rgba(0,0,0,0.4);
+      margin-top: 3px;
+
+
     }
   }
-
-  .log{
-    overflow: hidden;
-    clear: both;
-    font-family: "Times New Roman";
-    border-bottom:1px solid ;
-
-
-  }
-
-  .log:nth-last-child(odd){
-    background-color: #e7e5e4;
-    border-width: 3px;
-    margin-bottom: 3px;
-  }
-  .log:nth-last-child(even){
-    background-color: rgba(216, 215, 211, 1);
-
-  }
-
 
 
   .player-name{

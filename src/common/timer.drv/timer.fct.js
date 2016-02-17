@@ -12,11 +12,12 @@ module.exports = angular.module(__filename,[])
             this[_on]= {};
             this[_emit]= {};
             this.state = {
-                 pause : true
+                 pause : true,
+                 setted : false
             };
             var previousCycle = new Date();
 
-            /*generet events code*/
+            /** generate events code **/
             var events = 'start,pause,reset,setduration,update,timeEnd'.split(',');
             events.forEach(function (eventName) {
                 var queue = me[_on][eventName] = [];
@@ -65,6 +66,7 @@ module.exports = angular.module(__filename,[])
                 this[_duration] =  moment.duration( this.durationText );
                 /*state*/
                 this.state.timeEnd = false;
+                this.state.setted = (this[_duration].asMilliseconds() > 0);
                 /*event*/
                 this[_emit].setduration( this[_duration] );
                 this[_emit].update( this[_duration] )
