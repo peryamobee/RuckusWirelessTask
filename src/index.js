@@ -16,6 +16,10 @@ function baseController($scope, $location, Timer, context){
     $scope.$watch('context.duration', function (nv) {
         context.timer.setDuration(nv);
     })
+    
+    $scope.toggleEditTimerOpen = function () {
+        context.editTimerOpen
+    }
 }
 
 module.exports = angular.module('app', [

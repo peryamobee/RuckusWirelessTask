@@ -4,10 +4,12 @@ customize-menu{
   min-width: 10rem;
   background-color: #2b81af;
   height: 10rem;
+  position: absolute;
 
   button{
     padding: 0.5rem;
     font-size: 14px;
+    border: 2px solid white;
   }
 
 }

@@ -20,28 +20,35 @@
     <h1 class="elegantshadow">
         Timer (counterdown)
     </h1>
+    <div class="edit-timer open">
+        <div class="container " >
+            <input ng-model="context.duration" placeholder="hours:minutes:secounds.milisecounds">
+            <br>
+            <control-pannel >
 
-    <input ng-model="context.duration" placeholder="hours:minutes:secounds.milisecounds">
-    <br>
-    <control-pannel >
+                <button class="start-button" ng-click="context.duration='0:01:00'">
+                    1 min
+                </button>
 
-        <button class="start-button" ng-click="context.duration='0:01:00'">
-            1 min
-        </button>
+                <button class="reset-button" ng-click="context.duration='0:05:00'">
+                    5 min
+                </button>
 
-        <button class="reset-button" ng-click="context.duration='0:05:00'">
-            5 min
-        </button>
+                <button class="pause-button" ng-click="context.duration='0:15:00'">
+                    15 min
+                </button>
 
-        <button class="pause-button" ng-click="context.duration='0:15:00'">
-            15 min
-        </button>
+                <button class="pause-button" ng-click="context.duration='0:30:00'">
+                    30 min
+                </button>
+            </control-pannel>
+        </div>
+        <div class="bar" class-toggle=".edit-timer.open">
+            <i class="pullmenu-icon"></i>
 
-        <button class="pause-button" ng-click="context.duration='0:30:00'">
-            30 min
-        </button>
-    </control-pannel>
-    <hr>
+        </div>
+    </div>
+
 
 
     <tick-tock ng-class="{
