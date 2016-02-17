@@ -97,7 +97,7 @@ module.exports = angular.module(__filename,[])
                 this.setDuration();
                 /*state*/
                 this.state.start = false;
-                this.state.pause = true;
+                this.state.pause = false;
                 this.state.stop = true;
                 this.state.timeEnd = false;
 
