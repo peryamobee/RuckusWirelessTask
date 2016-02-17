@@ -1,5 +1,5 @@
 <customize-menu>
-    millisecond: <toggle ng-model="context.milisec"></toggle>
+    milli sec: <toggle ng-model="context.milisec"></toggle>
     <br>
 
 </customize-menu>
@@ -7,7 +7,9 @@
 <div class="dual-timer">
     <button class="switch-player-button"
             ng-click="switchPlayer()">
-        switch
+
+        <span ng-show="context.timer.state.start">switch</span>
+        <span ng-hide="context.timer.state.start">start</span>
         <br>
         <timer timer-model="context.timer"
                with-mili-seconds="context.milisec">timer inside</timer>
