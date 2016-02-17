@@ -1,6 +1,7 @@
 <customize-menu>
-    sdf
-    <toggle ng-model="test"></toggle>
+    millisecond: <toggle ng-model="context.milisec"></toggle>
+    <br>
+
 </customize-menu>
 
 <div class="dual-timer">
@@ -8,7 +9,9 @@
             ng-click="switchPlayer()">
         switch
         <br>
-        <timer timer-model="context.timer">timer inside</timer>
+        <timer timer-model="context.timer"
+               with-mili-seconds="context.milisec">timer inside</timer>
+
     </button>
 
     <div>

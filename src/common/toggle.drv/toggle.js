@@ -25,15 +25,8 @@ module.exports = angular.module(__filename, [])
                     element.removeAttr('indeterminate');
                     if ( value ) {
                         element.attr('checked', 'checked');
-                        (value == PARTIAL) && element.attr('indeterminate','indeterminate');
-
-                        element
-                            .addClass('On')
-                            .removeClass('Off');
-                    }else{
-                        element
-                            .addClass('Off')
-                            .removeClass('On');
+                        (value == PARTIAL)
+                            && element.attr('indeterminate', 'indeterminate');
                     }
                 }
 
