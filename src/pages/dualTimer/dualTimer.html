@@ -1,6 +1,18 @@
 <customize-menu>
     milli sec: <toggle ng-model="context.milisec"></toggle>
     <br>
+    <button class="reset-button"
+            ng-click="context.timer.pause()">
+        <i class="fa fa-pause fa-fw"></i>
+        Pause
+    </button>
+
+    <button class="pause-button"
+            ng-click="context.timer.reset()">
+        <i class="fa fa-stop fa-fw"></i>
+
+        Reset
+    </button>
 
 </customize-menu>
 
