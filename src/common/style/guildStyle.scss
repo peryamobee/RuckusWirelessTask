@@ -55,6 +55,7 @@ input {
   line-height: 16px;
   opacity: 0.5;
   transition: all 0.1s linear;
+  transition-delay: 0.2s;
 }
 
 input:hover,
@@ -66,6 +67,10 @@ input:focus {
   outline: none;
   font-size: 18px;
   /* line-height: 16px; */
+}
+
+input:hover{
+  transition-delay: 0.2s;
 }
 
 input[type="text"]:focus,
