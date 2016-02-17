@@ -15,9 +15,12 @@ body{
 }
 
 ui-view{
-    background-color: inherit;
+  background-color: inherit;
+  display: block;
 }
-
+ui-view.main-view{
+  padding: 1em;
+}
 
 
 @import "./common/style/guildStyle";

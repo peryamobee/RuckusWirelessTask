@@ -7,13 +7,11 @@
 </head>
 <body >
 <menu>
-    <menu>
-        <div>
-            <a href="#/dual">dual</a>
-            <a href="#/timer">timer</a>
-            <a href="#/chess">chess timer</a>
-        </div>
-    </menu>
+    <div>
+        <a href="#/dual">dual</a>
+        <a href="#/timer">timer</a>
+        <a href="#/chess">chess timer</a>
+    </div>
 </menu>
 <ui-view>
 
@@ -54,7 +52,7 @@
         start:context.timer.state.start,
         pause:context.timer.state.pause,
     }"></tick-tock>
-    <ui-view>234234</ui-view>
+    <ui-view class="main-view">234234</ui-view>
 </ui-view>
 </body>
 </html>
