@@ -13,7 +13,7 @@
            <div class="end-time">end</div>
            <div class="duration-time">duration</div>
         </h3>
-        <div class="log" ng-repeat="log in  Logger.list()">
+        <div class="log" ng-repeat="log in  Logger.list().reverse()">
             <div class="player-name"
                  ng-bind="log.name">player start time</div>
 
