@@ -1,6 +1,8 @@
 <customize-menu>
 
     milli sec: <toggle ng-model="context.milisec"></toggle>
+    <br>
+    burn fx: <toggle ng-model="context.burnFx"></toggle>
 
     <br>
     <button class="reset-button"
@@ -20,6 +22,7 @@
 
 <div class="dual-timer">
     <button class="switch-player-button"
+            ng-class="{'burn-fx':context.burnFx && context.timer.state.start}"
             ng-click="switchPlayer()">
 
         <span ng-show="context.timer.state.start">switch</span>
