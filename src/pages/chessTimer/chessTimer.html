@@ -22,25 +22,22 @@
 
 <div class="dual-timer chess-timer">
     <button class="switch-player-button"
-            ng-class="{'burn-fx':context.burnFx && context.timer.state.start}"
+            ng-class="{'burn-fx':context.burnFx}"
             ng-click="switchPlayer()">
 
-        <span ng-show="context.timer.state.start">switch</span>
-        <span ng-hide="context.timer.state.start">start</span>
-        <br>
-        <timer timer-model="context.timer"
-               with-mili-seconds="context.milisec">timer inside</timer>
-
+        <span >switch</span>
     </button>
     <br>
-    <div class="log-table side-by-side" ng-repeat="playerName in ['player1','player2']">
-        <div class="player-name" ng-bind="playerName">name</div>
+    <div class="log-table side-by-side" ng-repeat="player in players">
+        <timer timer-model="player.timer"
+               with-mili-seconds="context.milisec">timer inside</timer>
+        <div class="player-name" ng-bind="player.name">name</div>
         <h3 class="header">
             <div class="start-time">start</div> -
             <div class="end-time">end</div> =
             <div class="duration-time">duration</div>
         </h3>
-        <div class="log" ng-repeat="log in  Logger.list().reverse()">
+        <div class="log" ng-repeat="log in  player.timeLogger.list().reverse()">
             <div class="start-time"
                  ng-bind="log.startTime">player start time</div>
 
@@ -49,6 +46,9 @@
 
             <div class="duration-time"
                  ng-bind="log.duration">player duration</div>
+        </div>
+        <div class="summary">
+            <div class="duration-time" ng-bind="player.timeLogger.summary">10:20:20</div>
         </div>
     </div>
 

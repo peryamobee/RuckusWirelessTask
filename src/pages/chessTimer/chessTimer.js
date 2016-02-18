@@ -3,17 +3,45 @@
  */
 require('./chessTimer.scss');
 
-function timerController($scope, $location, $timeout, Timer){
-   /* var context = $scope.context;
-    var timer = context.timer = new Timer(context.duration);
+function timerController($scope, Logger, Timer, context){
 
-    if('autostart' in $location.search()){
-        timer.start();
+    var  timer = $scope.timer = context.timer;
+    const PLAYER_1 = 'player1'
+        ,PLAYER_2 = 'player2'
+        ;
+    var index = -1,
+        timers = [new Timer('10:00:00'),new Timer('10:00:00')];
+
+    var players = $scope.players =  [{
+            name:PLAYER_1,
+            timer: timers[0],
+            timeLogger: new Logger( timers[0] )
+        },{
+            name:PLAYER_2,
+            timer: timers[1],
+            timeLogger: new Logger( timers[1] )
+        }]
+        ;
+
+    function nextPlayer(val){
+        val =(++index) % players.length ;
+        return  players[ val ];
     }
-    $scope.$watch('context.duration', function (nv) {
-        timer.setDuration(nv);
-    })
-*/
+
+    $scope.switchPlayer = switchPlayer;
+
+    var closeLog = angular.noop;
+    var player = nextPlayer();
+    function switchPlayer(){
+        player.timer.pause();
+        closeLog( true );
+
+        player = nextPlayer();
+        player.timer.start();
+        closeLog = player.timeLogger.createLog( player.name );
+    }
+
+
 }
 
 module.exports.stateConfig = {

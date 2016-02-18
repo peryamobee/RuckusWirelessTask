@@ -6,18 +6,27 @@ module.exports = angular.module(__filename,[])
         return function ( timer ) {
             /*collection*/
             var logs = new Set();
-            var Duration = moment.duration.bind(moment)
-                ;
+            var Duration = moment.duration.bind(moment);
+            var summary =  moment.duration();
+            var summaryText = '';
+
             var durationOption = {
                 trim: false,
                 template: 'hh:mm:ss'
             };
 
+            /** API **/
             _.extend(logs, {
                 list: list,
                 createLog: createLog
             });
+            Object.defineProperty(logs, 'summary', {
+                get: function () {
+                    return  summaryText;
+                }
+            });
 
+            /** end API **/
             function list() {
                 return Array.from(logs);
             }
@@ -32,10 +41,14 @@ module.exports = angular.module(__filename,[])
                     duration: 'calculate'
                 };
                 logs.add(log);
-                return function closeLog() {
+                return function closeLog( ) {
                     var endTime = timer.getDuration();
                     log.endTime = endTime.format(durationOption);
-                    log.duration = startTime.subtract(endTime).format('mm [min] ss [sec]');
+                    var duration = startTime.subtract(endTime);
+                    log.duration = duration.format('mm [min] ss [sec]');
+                    summary.add( duration );
+                    summaryText = summary.format('hh:mm:ss',{trim:false});
+
                     return log;
                 }
             }
