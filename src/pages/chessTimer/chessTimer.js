@@ -3,9 +3,8 @@
  */
 require('./chessTimer.scss');
 
-function timerController($scope, Logger, Timer, context){
+function timerController($scope, TimeLogger, Timer, context){
 
-    var  timer = $scope.timer = context.timer;
     const PLAYER_1 = 'player1'
         ,PLAYER_2 = 'player2'
         ;
@@ -15,13 +14,16 @@ function timerController($scope, Logger, Timer, context){
     var players = $scope.players =  [{
             name:PLAYER_1,
             timer: timers[0],
-            timeLogger: new Logger( timers[0] )
+            timeLogger: new TimeLogger( timers[0] ),
+            active:false
         },{
             name:PLAYER_2,
             timer: timers[1],
-            timeLogger: new Logger( timers[1] )
+            timeLogger: new TimeLogger( timers[1] ),
+            active:false
         }]
         ;
+    
 
     function nextPlayer(val){
         val =(++index) % players.length ;
@@ -32,12 +34,20 @@ function timerController($scope, Logger, Timer, context){
 
     var closeLog = angular.noop;
     var player = nextPlayer();
+    timers.forEach(function (timer) {
+        timer.onUpdate(function () {
+          closeLog();
+        })
+    });
+
     function switchPlayer(){
         player.timer.pause();
-        closeLog( true );
+        closeLog();
+        player.active = false;
 
         player = nextPlayer();
         player.timer.start();
+        player.active = true;
         closeLog = player.timeLogger.createLog( player.name );
     }
 

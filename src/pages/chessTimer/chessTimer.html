@@ -28,10 +28,16 @@
         <span >switch</span>
     </button>
     <br>
-    <div class="log-table side-by-side" ng-repeat="player in players">
+    <div class="log-table side-by-side"
+         ng-repeat="player in players"
+         ng-class="{active:player.active}"
+    >
+
+        <div class="player-name" ng-bind="player.name">name</div>
+        <span>Time Left</span>
         <timer timer-model="player.timer"
                with-mili-seconds="context.milisec">timer inside</timer>
-        <div class="player-name" ng-bind="player.name">name</div>
+
         <h3 class="header">
             <div class="start-time">start</div> -
             <div class="end-time">end</div> =
@@ -39,10 +45,10 @@
         </h3>
         <div class="log" ng-repeat="log in  player.timeLogger.list().reverse()">
             <div class="start-time"
-                 ng-bind="log.startTime">player start time</div>
+                 ng-bind="log.startTime">player start time</div> -
 
             <div class="end-time"
-                 ng-bind="log.endTime">player end time</div>
+                 ng-bind="log.endTime">player end time</div> =
 
             <div class="duration-time"
                  ng-bind="log.duration">player duration</div>

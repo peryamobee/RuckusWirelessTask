@@ -8,7 +8,7 @@ module.exports = angular.module(__filename, [
     require('./timer.drv/timer.drv.js').name
     ,require('./tickTock.drv/tickTock.drv').name
     ,require('./timer.drv/timer.fct').name
-    ,require('./logger.fct/logger.fct').name
+    ,require('./timeLogger.fct/timeLogger.fct').name
     ,require('./context.srv/context.srv').name
     ,require('./toggle.drv/toggle').name
     ,require('./classToggle.drv/classToggle').name

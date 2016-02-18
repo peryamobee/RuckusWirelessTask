@@ -2,7 +2,7 @@
  * Created by pery on 08/02/2016.
  */
 module.exports = angular.module(__filename,[])
-    .factory('Logger', function () { //todo:change it to loggerTime
+    .factory('TimeLogger', function () { //todo:change it to loggerTime
         return function ( timer ) {
             /*collection*/
             var logs = new Set();
@@ -37,17 +37,18 @@ module.exports = angular.module(__filename,[])
                 var log = {
                     name: player,
                     startTime: startTime.format(durationOption),
-                    endTime: 'in progress',
-                    duration: 'calculate'
+                    endTime: '',
+                    duration: ''
                 };
                 logs.add(log);
-                return function closeLog( ) {
+                return function closeLog( final ) {
                     var endTime = timer.getDuration();
+                    var duration = Duration(startTime).subtract(endTime);
                     log.endTime = endTime.format(durationOption);
-                    var duration = startTime.subtract(endTime);
                     log.duration = duration.format('mm [min] ss [sec]');
-                    summary.add( duration );
-                    summaryText = summary.format('hh:mm:ss',{trim:false});
+
+                    summaryText = Duration(summary).add( duration ).format(durationOption);
+                    final && summary.add( duration );
 
                     return log;
                 }

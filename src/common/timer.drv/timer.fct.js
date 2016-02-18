@@ -47,7 +47,7 @@ module.exports = angular.module(__filename,[])
                 var duration = me[_duration];
                 duration.subtract(timePass,'milliseconds');
                 if( duration.asMilliseconds() <= 0 ){
-                    duration.add(- duration.asMilliseconds() );
+                    duration.add( -duration.asMilliseconds() );
                     me.pause();
                     me.state.timeEnd = true;
                     me.state.stop = true;
@@ -56,7 +56,7 @@ module.exports = angular.module(__filename,[])
                 me[_emit].update(duration);
 
                 //!$rootScope.$$phase && $rootScope.$digest(); //bad way
-                $timeout()//good way
+                $timeout();//good way
             }
         }
         var events = 'reset'.split(',');

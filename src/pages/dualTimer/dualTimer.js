@@ -3,7 +3,7 @@
  */
 require('./dualTimer.scss');
 
-function timerController($scope, Logger, Timer, context){
+function timerController($scope, TimeLogger, Timer, context){
     var  timer = $scope.timer = context.timer;
     const PLAYER_1 = 'player1'
           ,PLAYER_2 = 'player2'
@@ -18,7 +18,7 @@ function timerController($scope, Logger, Timer, context){
     }
 
     $scope.switchPlayer = switchPlayer;
-    var timeLogger = $scope.timeLogger = Logger( timer );
+    var timeLogger = $scope.timeLogger = TimeLogger( timer );
 
     var closeLog = angular.noop;
     function switchPlayer(){
