@@ -6,13 +6,13 @@
 
     <br>
     <button class="reset-button"
-            ng-click="context.timer.pause()">
+            ng-click="players[0].timer.pause();players[1].timer.pause()">
         <i class="fa fa-pause fa-fw"></i>
         Pause
     </button>
 
     <button class="pause-button"
-            ng-click="context.timer.reset()">
+            ng-click="players[0].timer.reset();players[1].timer.reset() ">
         <i class="fa fa-stop fa-fw"></i>
 
         Reset

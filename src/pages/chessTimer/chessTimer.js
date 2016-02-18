@@ -15,12 +15,16 @@ function timerController($scope, TimeLogger, Timer, context){
             name:PLAYER_1,
             timer: timers[0],
             timeLogger: new TimeLogger( timers[0] ),
-            active:false
+            get active(){
+                return this.timer.state.start;
+            }
         },{
             name:PLAYER_2,
             timer: timers[1],
             timeLogger: new TimeLogger( timers[1] ),
-            active:false
+            get active(){
+                return this.timer.state.start;
+            }
         }]
         ;
     
