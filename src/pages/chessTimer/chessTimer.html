@@ -21,8 +21,12 @@
 </customize-menu>
 
 <div class="dual-timer chess-timer">
-    <button class="switch-player-button"
-            ng-class="{'burn-fx':context.burnFx}"
+    <button class="switch-toggle-player-button"
+            ng-class="{
+                'burn-fx':context.burnFx,
+                'toggle-left':players[0].timer.state.start,
+                'toggle-right':players[1].timer.state.start
+            }"
             ng-click="switchPlayer()">
 
         <span >switch</span>

@@ -1,0 +1,23 @@
+/*********
+  Shadow 1
+*********/
+.shadow1:before, .shadow1:after{
+  position:absolute;
+  content:"";
+  bottom:12px;left:15px;top:80%;
+  width:45%;
+  background:#9B7468;
+  z-index:-1;
+  box-shadow: 0 20px 15px #9B7468;
+  transform: rotate(-6deg);
+}
+
+.shadow1:after{
+  transform: rotate(6deg);
+  right: 15px;left: auto;
+}
+
+/*********
+  Shadow 2
+*********/
+

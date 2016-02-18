@@ -19,7 +19,7 @@ button{
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 0.5em;
-  transform-style: preserve-3d;
+  //transform-style: preserve-3d;
   transition: transform 0.05s linear;
 
   &::after{
@@ -121,4 +121,113 @@ input[type="password"]:focus {
     border-top: 1px solid rgba(0,0,0,0.4);
     margin-top: 3px;
   }
+}
+
+/***********************
+ switch-player-button
+***********************/
+.switch-player-button{
+  height: 6rem;
+  width: 240px;
+  padding: 10px 8px 10px 8px;
+  border-radius: 100px/20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0px 1px 1px rgba(255, 255, 255, 0.5);
+  border: 2px solid #FFF;
+  line-height: 16px;
+  transition: all 0.1s linear;
+  font-size: 20px;
+  font-family: sans-serif;
+
+
+}
+.switch-player-button.burn-fx{
+  animation: animation 0.65s ease-in-out infinite alternate;
+  &:after{
+    animation: animation 0.80s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes animation
+{
+  0% {box-shadow: inset 0 0 20px rgba(254, 252, 201, 0.5),
+  inset 10px -10px 30px rgba(254, 236, 133, 0.5),
+  inset    -20px -20px 40px rgba(255, 174, 52, 0.5),
+  inset     20px -40px 50px rgba(236, 118, 12, 0.5),
+  inset     -20px -60px 60px rgba(205, 70, 6, 0.5),
+  inset     0 -80px 70px rgba(151, 55, 22, 0.5),
+  inset     10px -90px 80px rgba(69, 27, 14, 0.5);
+  }
+  100% {box-shadow: inset 0 0 20px rgba(254, 252, 201, 0.5),
+  inset 10px -10px 30px rgba(254, 252, 201, 0.5),
+  inset -20px -20px 40px rgba(254, 236, 133, 0.5),
+  inset 22px -42px 60px rgba(255, 174, 52, 0.5),
+  inset -22px -58px 50px rgba(236, 118, 12, 0.5),
+  inset 0 -82px 80px rgba(205, 70, 6, 0.50),
+  inset 10px -90px 80px rgba(151, 55, 22, 0.50);}
+}
+
+/***********************
+ switch-toggle-player-button
+***********************/
+.switch-toggle-player-button {
+  height: 6rem;
+  width: 240px;
+  padding: 10px 8px 10px 8px;
+  border-radius: 100px/20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55),
+  0px 1px 1px rgba(255, 255, 255, 0.5);
+  border: 2px solid #FFF;
+  line-height: 16px;
+  transition: all 0.1s linear;
+  font-size: 20px;
+  font-family: sans-serif;
+  margin: 20px;
+  position: relative;
+  background: #DDDDDD;
+  transform-origin: center;
+
+  &:active {
+    outline: none;
+    transform: none;
+  }
+
+  &.toggle-right {
+    transform: rotateY(10deg);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55),
+    0px 1px 1px rgba(255, 255, 255, 0.5),
+    -40px 38px 7px -41px rgba(0, 0, 0, 0.4);
+  }
+  &.toggle-left{
+    transform: rotateY(-10deg);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55),
+    0px 1px 1px rgba(255, 255, 255, 0.5),
+    39px 38px 7px -41px rgba(0,0,0,0.4);
+  }
+
+
+
+ /* &.toggle-right:before{
+    height: 50%;
+    width: 50%;
+    border-radius: 100px/20px;
+    position:absolute;
+    content:"";
+    bottom:0px;left:15px;top:40%;
+    z-index:-1;
+    box-shadow: 0 20px 15px #9B7468;
+    transform: rotate(-6deg);
+  }
+
+  &.toggle-left:before{
+    height: 50%;
+    width: 50%;
+    border-radius: 100px/20px;
+    position:absolute;
+    content:"";
+    bottom:0px;top:40%;
+    z-index:-1;
+    box-shadow: 0 20px 15px #9B7468;
+    transform: rotate(6deg);
+    right: 15px;left: auto;
+  }*/
 }

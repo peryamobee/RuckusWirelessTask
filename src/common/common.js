@@ -3,6 +3,10 @@
  */
 
 require('./styleFx/elegantShadow.scss');
+require('./styleFx/shadowFx.scss');
+require('./style/guildStyle.scss');
+require('./style/customize-menu.scss');
+require('./style/model-edit-timer.scss');
 
 module.exports = angular.module(__filename, [
     require('./timer.drv/timer.drv.js').name
