@@ -18,13 +18,13 @@ function timerController($scope, Logger, Timer, context){
     }
 
     $scope.switchPlayer = switchPlayer;
-    $scope.Logger = Logger;
+    var timeLogger = $scope.timeLogger = Logger( timer );
 
     var closeLog = angular.noop;
     function switchPlayer(){
         timer.start();
         closeLog();
-        closeLog = Logger.createLog( nextPlayer());
+        closeLog = timeLogger.createLog( nextPlayer());
     }
 
 

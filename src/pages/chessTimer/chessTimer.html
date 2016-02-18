@@ -1,16 +1,10 @@
-<timer timer-model="context.timer"
-       ng-class="{finish:context.timer.state.timeEnd}"
->timer inside</timer>
+<customize-menu>
 
-<br>
-<control-pannel >
+    milli sec: <toggle ng-model="context.milisec"></toggle>
+    <br>
+    burn fx: <toggle ng-model="context.burnFx"></toggle>
 
-    <button class="start-button"
-            ng-click="context.timer.start()">
-        <i class="fa fa-play fa-fw"></i>
-        Start
-    </button>
-
+    <br>
     <button class="reset-button"
             ng-click="context.timer.pause()">
         <i class="fa fa-pause fa-fw"></i>
@@ -23,4 +17,39 @@
 
         Reset
     </button>
-</control-pannel>
+
+</customize-menu>
+
+<div class="dual-timer chess-timer">
+    <button class="switch-player-button"
+            ng-class="{'burn-fx':context.burnFx && context.timer.state.start}"
+            ng-click="switchPlayer()">
+
+        <span ng-show="context.timer.state.start">switch</span>
+        <span ng-hide="context.timer.state.start">start</span>
+        <br>
+        <timer timer-model="context.timer"
+               with-mili-seconds="context.milisec">timer inside</timer>
+
+    </button>
+    <br>
+    <div class="log-table side-by-side" ng-repeat="playerName in ['player1','player2']">
+        <div class="player-name" ng-bind="playerName">name</div>
+        <h3 class="header">
+            <div class="start-time">start</div> -
+            <div class="end-time">end</div> =
+            <div class="duration-time">duration</div>
+        </h3>
+        <div class="log" ng-repeat="log in  Logger.list().reverse()">
+            <div class="start-time"
+                 ng-bind="log.startTime">player start time</div>
+
+            <div class="end-time"
+                 ng-bind="log.endTime">player end time</div>
+
+            <div class="duration-time"
+                 ng-bind="log.duration">player duration</div>
+        </div>
+    </div>
+
+</div>

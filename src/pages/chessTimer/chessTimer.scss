@@ -1,0 +1,15 @@
+.chess-timer{
+  .player-name{
+    font-size: 20px;
+  }
+
+  .log-table.side-by-side{
+    display:  inline-block;
+    margin-left: 1px;
+  }
+
+  .log-table.side-by-side:first-child{
+    border-left: 1px solid black;
+  }
+
+}

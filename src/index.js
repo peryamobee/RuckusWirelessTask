@@ -31,6 +31,7 @@ module.exports = angular.module('app', [
 .config(function (stateHelperProvider, $urlRouterProvider) {
     var timerPage = require('./pages/simpleTimer/simpleTimer.js').stateConfig;
     var dualPage = require('./pages/dualTimer/dualTimer.js').stateConfig;
+    var chessPage = require('./pages/chessTimer/chessTimer.js').stateConfig;
     stateHelperProvider.state({
         name: "root",
         url: "^",
@@ -39,7 +40,8 @@ module.exports = angular.module('app', [
         controller: baseController,
         children: [
             timerPage,
-            dualPage
+            dualPage,
+            chessPage
         ]
     }, "IgnoreRoot");
     $urlRouterProvider.otherwise(timerPage.url);
