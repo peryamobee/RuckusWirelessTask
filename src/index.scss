@@ -17,6 +17,7 @@ body{
 ui-view{
   background-color: inherit;
   display: block;
+  position: relative;
 }
 ui-view.main-view{
   padding: 1em;
