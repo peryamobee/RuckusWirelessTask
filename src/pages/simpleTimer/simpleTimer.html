@@ -1,3 +1,24 @@
+<customize-menu>
+    <h3>customize</h3>
+    <br>
+    <span>milli sec :</span><toggle ng-model="context.milisec"></toggle>
+    <br>
+    <span>burn fx :</span><toggle ng-model="context.burnFx"></toggle>
+
+    <br>
+    <button class="pause-button"
+            ng-click="context.timer.pause()">
+        <i class="fa fa-pause fa-fw"></i>
+        Pause
+    </button>
+
+    <button class="reset-button"
+            ng-click="context.timer.reset();timeLogger.clear();">
+        <i class="fa fa-stop fa-fw"></i>
+        Reset
+    </button>
+
+</customize-menu>
 <timer timer-model="context.timer"
        ng-class="{finish:context.timer.state.timeEnd}"
 >timer inside</timer>

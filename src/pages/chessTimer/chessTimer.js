@@ -35,12 +35,20 @@ function timerController($scope, TimeLogger, Timer, context){
     }
 
     $scope.switchPlayer = switchPlayer;
+    $scope.resetTimers = resetTimers;
+    $scope.pauseTimers = pauseTimers;
 
     var closeLog = angular.noop;
     var player = nextPlayer();
     timers.forEach(function (timer) {
         timer.onUpdate(function () {
           closeLog();
+        })
+    });
+
+    $scope.$watch('context.duration', function (nv) {
+        players.forEach(function (p) {
+            p.timer.setDuration(nv);
         })
     });
 
@@ -55,6 +63,18 @@ function timerController($scope, TimeLogger, Timer, context){
         closeLog = player.timeLogger.createLog( player.name );
     }
 
+    function resetTimers(){
+        players.forEach(function (p) {
+            p.timer.reset();
+            p.timeLogger.clear();
+        })
+    }
+
+    function pauseTimers(){
+        players.forEach(function (p) {
+            p.timer.pause();
+        })
+    }
 
 }
 
