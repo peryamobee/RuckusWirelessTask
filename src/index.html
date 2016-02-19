@@ -6,13 +6,7 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body >
-<menu>
-    <div>
-        <a href="#/dual">dual</a>
-        <a href="#/timer">timer</a>
-        <a href="#/chess">chess timer</a>
-    </div>
-</menu>
+
 <ui-view>
 
     <h1 class="elegantshadow">
@@ -54,6 +48,12 @@
         start:context.timer.state.start,
         pause:context.timer.state.pause,
     }"></tick-tock>
+
+    <menu>
+        <a ui-sref="root.timer" ui-sref-active="active" >simple</a>
+        <a  ui-sref="root.dual" ui-sref-active="active" >dual</a>
+        <a ui-sref="root.chess" ui-sref-active="active"     >chess</a>
+    </menu>
     <ui-view class="main-view">234234</ui-view>
 </ui-view>
 </body>
