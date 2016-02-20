@@ -5,29 +5,24 @@ require('./chessTimer.scss');
 
 function timerController($scope, TimeLogger, Timer, context){
 
-    const PLAYER_1 = 'player1'
-        ,PLAYER_2 = 'player2'
-        ;
-    var index = -1,
+   var index = -1,
         timers = [new Timer('10:00:00'),new Timer('10:00:00')];
 
     var players = $scope.players =  [{
-            name:PLAYER_1,
+            name:context.player1Name,
             timer: timers[0],
             timeLogger: new TimeLogger( timers[0] ),
             get active(){
                 return this.timer.state.start;
             }
         },{
-            name:PLAYER_2,
+            name:context.player2Name,
             timer: timers[1],
             timeLogger: new TimeLogger( timers[1] ),
             get active(){
                 return this.timer.state.start;
             }
-        }]
-        ;
-    
+        }];
 
     function nextPlayer(val){
         val =(++index) % players.length ;

@@ -4,7 +4,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var exportRunTimeVariable = new webpack.DefinePlugin({
@@ -32,8 +32,9 @@ module.exports = {
         //root: __dirname + '/src'
     },
     entry:{
-        TimerApp:'./src/index.js'
-        ,vendors:'./vendors.js'
+        vendors:'./vendors.js'
+        ,TimerApp:'./src/index.js'
+
     },
     output:{
         path: path.join(__dirname,'build'),
@@ -76,8 +77,12 @@ module.exports = {
     },
     plugins: [
         extractSCSS,
-        exportRunTimeVariable
-        ,new HtmlWebpackPlugin({
+        exportRunTimeVariable,
+        new ngAnnotatePlugin({
+            add: true
+            // other ng-annotate options here
+        }),
+        new HtmlWebpackPlugin({
             title: 'Timer Task'
             //,filename: ''
             ,template: 'src/index.html'

@@ -12,6 +12,11 @@
     <h1 class="elegantshadow">
         Timer (counterdown)
     </h1>
+    <menu>
+        <a ui-sref="root.timer" ui-sref-active="active" >simple</a>
+        <a  ui-sref="root.dual" ui-sref-active="active" >dual</a>
+        <a ui-sref="root.chess" ui-sref-active="active"     >chess</a>
+    </menu>
     <div class="edit-timer" ng-class="{open:!context.timer.state.setted}">
         <div class="container " >
             <input ng-model="context.duration"
@@ -44,16 +49,9 @@
 
 
 
-    <tick-tock ng-class="{
-        start:context.timer.state.start,
-        pause:context.timer.state.pause,
-    }"></tick-tock>
 
-    <menu>
-        <a ui-sref="root.timer" ui-sref-active="active" >simple</a>
-        <a  ui-sref="root.dual" ui-sref-active="active" >dual</a>
-        <a ui-sref="root.chess" ui-sref-active="active"     >chess</a>
-    </menu>
+
+
     <ui-view class="main-view">234234</ui-view>
 </ui-view>
 </body>

@@ -20,16 +20,22 @@
 
 </customize-menu>
 
+<tick-tock ng-class="{
+        start:context.timer.state.start,
+        pause:context.timer.state.pause,
+}"></tick-tock>
+
 <div class="dual-timer">
     <button class="switch-player-button"
-            ng-class="{'burn-fx':context.burnFx && context.timer.state.start}"
+            ng-class="{'burn-fx':context.burnFx && timer.state.start}"
             ng-click="switchPlayer()">
 
-        <span ng-show="context.timer.state.start">switch</span>
-        <span ng-hide="context.timer.state.start">start</span>
+        <span ng-show="timer.state.start">switch</span>
+        <span ng-hide="timer.state.start">start</span>
         <br>
-        <timer timer-model="context.timer"
-               with-mili-seconds="context.milisec">timer inside</timer>
+        <timer timer-model="timer"
+               with-mili-seconds="context.milisec"
+               ng-class="{finish:timer.state.timeEnd}">timer inside</timer>
 
     </button>
 

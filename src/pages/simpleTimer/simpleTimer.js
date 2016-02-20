@@ -3,17 +3,12 @@
  */
 require('./simpleTimer.scss');
 
-function timerController($scope, $location, $timeout, Timer){
-   /* var context = $scope.context;
-    var timer = context.timer = new Timer(context.duration);
+function timerController($scope, $location, $timeout, Timer, context){
+   var timer = $scope.timer = new Timer(context.duration);
+    context.autoStart && timer.start();
+   $scope.$watch('context.duration', timer.setDuration.bind(timer));
 
-    if('autostart' in $location.search()){
-        timer.start();
-    }
-    $scope.$watch('context.duration', function (nv) {
-        timer.setDuration(nv);
-    })
-*/
+
 }
 
 module.exports.stateConfig = {

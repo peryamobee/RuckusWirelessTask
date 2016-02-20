@@ -7,41 +7,34 @@
 
     <br>
     <button class="pause-button"
-            ng-click="context.timer.pause()">
+            ng-click="timer.pause()">
         <i class="fa fa-pause fa-fw"></i>
         Pause
     </button>
 
     <button class="reset-button"
-            ng-click="context.timer.reset();timeLogger.clear();">
+            ng-click="timer.reset();timeLogger.clear();">
         <i class="fa fa-stop fa-fw"></i>
         Reset
     </button>
 
 </customize-menu>
-<timer timer-model="context.timer"
-       ng-class="{finish:context.timer.state.timeEnd}"
+<tick-tock ng-class="{
+        start:timer.state.start,
+        pause:timer.state.pause,
+    }"></tick-tock>
+<timer timer-model="timer"
+       with-mili-seconds="context.milisec"
+       ng-class="{finish:timer.state.timeEnd}"
 >timer inside</timer>
 
 <br>
 <control-pannel >
 
     <button class="start-button"
-            ng-click="context.timer.start()">
+            ng-click="timer.start()">
         <i class="fa fa-play fa-fw"></i>
         Start
     </button>
 
-    <button class="reset-button"
-            ng-click="context.timer.pause()">
-        <i class="fa fa-pause fa-fw"></i>
-        Pause
-    </button>
-
-    <button class="pause-button"
-            ng-click="context.timer.reset()">
-        <i class="fa fa-stop fa-fw"></i>
-
-        Reset
-    </button>
 </control-pannel>

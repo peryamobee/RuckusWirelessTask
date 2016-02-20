@@ -4,17 +4,17 @@
 require('./dualTimer.scss');
 
 function timerController($scope, TimeLogger, Timer, context){
-    var  timer = $scope.timer = context.timer;
-    const PLAYER_1 = 'player1'
-          ,PLAYER_2 = 'player2'
-    ;
+    var  timer = $scope.timer = new Timer(context.duration);
+    context.autoStart && timer.start();
+    $scope.$watch('context.duration', timer.setDuration.bind(timer));
+
     var index = -1,
-        player = [PLAYER_1,PLAYER_2]
+        players = [context.player1Name,context.player2Name]
     ;
 
     function nextPlayer(val){
-        val =(++index) % player.length ;
-        return  player[ val ];
+        val =(++index) % players.length ;
+        return  players[ val ];
     }
 
     $scope.switchPlayer = switchPlayer;

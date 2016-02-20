@@ -9,7 +9,10 @@ module.exports = angular.module(__filename,[])
             value: function( newValues ){
                 _.extend( context, newValues );
                 return context;
-            }
+            },
+            addTimer: function (timer) {
+
+            } 
         });
 
         return context;
