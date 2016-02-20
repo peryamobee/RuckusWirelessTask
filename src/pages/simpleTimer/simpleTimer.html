@@ -5,20 +5,7 @@
     <br>
     <span>burn fx :</span><toggle ng-model="context.burnFx"></toggle>
 
-    <br>
-    <button class="pause-button"
-            ng-click="timer.pause()">
-        <i class="fa fa-pause fa-fw"></i>
-        Pause
-    </button>
-
-    <button class="reset-button"
-            ng-click="timer.reset();timeLogger.clear();">
-        <i class="fa fa-stop fa-fw"></i>
-        Reset
-    </button>
-
-</customize-menu>
+  </customize-menu>
 <tick-tock ng-class="{
         start:timer.state.start,
         pause:timer.state.pause,
@@ -37,4 +24,16 @@
         Start
     </button>
 
+    <button class="reset-button"
+            ng-click="timer.pause()">
+        <i class="fa fa-pause fa-fw"></i>
+        Pause
+    </button>
+
+    <button class="pause-button"
+            ng-click="context.timer.reset()">
+        <i class="fa fa-stop fa-fw"></i>
+
+        Reset
+    </button>
 </control-pannel>
