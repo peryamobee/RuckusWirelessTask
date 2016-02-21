@@ -4,12 +4,14 @@
 require('./dualTimer.scss');
 
 function timerController($scope, TimeLogger, Timer, context){
+    /* init page */
     var  timer = $scope.timer = new Timer(context.duration);
     context.autoStart && timer.start();
     $scope.$watch('context.duration', timer.setDuration.bind(timer));
 
+    /* players */
     var index = -1,
-        players = [context.player1Name,context.player2Name]
+        players = [context.players1Name,context.players2Name]
     ;
 
     function nextPlayer(val){
@@ -22,10 +24,16 @@ function timerController($scope, TimeLogger, Timer, context){
 
     var closeLog = angular.noop;
     function switchPlayer(){
-        timer.start();
-        closeLog();
-        closeLog = timeLogger.createLog( nextPlayer());
+        if( timer.state.setted ){
+            timer.start();
+            closeLog(true);
+            closeLog = timeLogger.createLog( nextPlayer());
+        }
     }
+
+    timer.onUpdate(function () {
+        closeLog();
+    })
 
 
 }

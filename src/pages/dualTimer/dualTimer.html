@@ -22,18 +22,35 @@
 
 
 <div class="dual-timer">
-    <button class="switch-player-button"
-            ng-class="{'burn-fx':context.burnFx && timer.state.start}"
-            ng-click="switchPlayer()">
 
-        <span ng-show="timer.state.start">switch</span>
-        <span ng-hide="timer.state.start">start</span>
-        <br>
-        <timer timer-model="timer"
-               with-mili-seconds="context.milisec"
-               ng-class="{finish:timer.state.timeEnd}">timer inside</timer>
+    <control-pannel >
+        <button class="reset-button"
+                ng-click="timer.pause()">
+            <i class="fa fa-pause fa-fw"></i>
+            Pause
+        </button>
 
-    </button>
+        <button class="switch-player-button"
+                ng-class="{'burn-fx':context.burnFx && timer.state.start}"
+                ng-click="switchPlayer()">
+
+            <span ng-show="timer.state.start">switch</span>
+            <span ng-hide="timer.state.start">start</span>
+            <br>
+            <timer timer-model="timer"
+                   with-mili-seconds="context.milisec"
+                   ng-class="{finish:timer.state.timeEnd}">timer inside</timer>
+
+        </button>
+
+
+        <button class="pause-button"
+                ng-click="timer.reset()">
+            <i class="fa fa-stop fa-fw"></i>
+
+            Reset
+        </button>
+    </control-pannel>
 
     <tick-tock ng-class="{
         start:timer.state.start,
@@ -43,8 +60,8 @@
     <div class="log-table">
         <h3 class="header">
            <div class="player-name">name</div>
-           <div class="start-time">start</div>
-           <div class="end-time">end</div>
+           <div class="start-time">start</div> -
+           <div class="end-time">end</div> =
            <div class="duration-time">duration</div>
         </h3>
         <div class="log" ng-repeat="log in  timeLogger.list().reverse()">
@@ -52,10 +69,10 @@
                  ng-bind="log.name">player start time</div>
 
             <div class="start-time"
-                 ng-bind="log.startTime">player start time</div>
+                 ng-bind="log.startTime">player start time</div> -
 
             <div class="end-time"
-                 ng-bind="log.endTime">player end time</div>
+                 ng-bind="log.endTime">player end time</div> =
 
             <div class="duration-time"
                  ng-bind="log.duration">player duration</div>
