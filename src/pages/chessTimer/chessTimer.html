@@ -22,7 +22,7 @@
 
 
 
-<div class="dual-timer chess-timer">
+<div class="chess-timer">
     <button class="switch-toggle-player-button"
             ng-class="{
                 'burn-fx':context.burnFx,
@@ -36,13 +36,13 @@
     <br>
 
     <tick-tock class="player-1"  ng-class="{
-        start:players[0].timer.state.start,
-        pause:players[0].timer.state.pause,
+        start: players[0].timer.state.start,
+        pause: players[0].timer.state.pause,
     }"></tick-tock>
 
     <tick-tock class="player-2" ng-class="{
-        start:players[1].timer.state.start,
-        pause:players[1].timer.state.pause,
+        start: players[1].timer.state.start,
+        pause: players[1].timer.state.pause,
     }"></tick-tock>
 
     <div class="log-table side-by-side"

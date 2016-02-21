@@ -1,6 +1,15 @@
 .chess-timer{
   transform-style: preserve-3d;
   perspective: 1000px;
+  min-width: 26rem;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+
+  timer{
+    font-size:15px;
+    font-weight: bold;
+  }
 
   tick-tock{
     //position: absolute;
@@ -28,7 +37,6 @@
   }
 
   .log-table{
-
     margin: 0 1em;
     position: relative;
     padding-bottom: 1em;
