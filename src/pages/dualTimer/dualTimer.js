@@ -31,6 +31,9 @@ function timerController($scope, TimeLogger, Timer, context){
         }
     }
 
+    timer.onReset(function () {
+       timeLogger.clear();
+    });
     timer.onUpdate(function () {
         closeLog();
     })
