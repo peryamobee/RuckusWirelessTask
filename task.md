@@ -23,13 +23,14 @@ Requirements
 
  Extra points (in any order) 
 ============================
+
 - Check Google Analytics (GA) API and add start event "_trackEvent('timer', 'start', time)". This requires you to create a new account with them to get tracking code.
 x Add an option to autostart timer from URL params. Ex.: "?t=0:15:00&autostart"
 - Accept different time formats: 15m, 15”, 15 min > 0:15:00 and same including seconds and hours.
 x Add predefined buttons timers: 1, 5, 15, 30 min. Add GA events for them if you added analytics.
-- Nice looking UI.
+x Nice looking UI.
 x Adding visual effect for timer complete and running.
- Extra bonus: foreground and background status.
+? Extra bonus: foreground and background status.
 x Visual presentation of remaining time.
 - Unit tests.
 
