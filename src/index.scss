@@ -7,11 +7,11 @@ body{
     min-width: 1024px;
 
 
-    tick-tock{
-        position: absolute;
-        right: 0;
-        background-color: inherit;
-    }
+  //tick-tock{
+  //  position: absolute;
+  //  right: 0;
+  //  background-color: inherit;
+  //}
 }
 
 ui-view{
@@ -24,24 +24,5 @@ ui-view.main-view{
 }
 
 
-menu{
-  margin-top: 0;
-  padding: 0;
-  a{
-    display: inline-block;
-    border-bottom: 2px solid white;
-    text-decoration: none;
-    text-transform: capitalize;
-    color: black;
-    font-size: 17px;
-    margin: 0 0.3em;
-    padding: 0 0.6em;
-    font-weight: bold;
-    box-shadow: 0 1px 4px -2px rgba(0,0,0,0.4);
-    border-radius: 10px/5px;
-  }
-  a.active{
-     border-color: yellow;
-  }
-}
+
 

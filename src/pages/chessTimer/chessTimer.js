@@ -44,6 +44,7 @@ function timerController($scope, TimeLogger, Timer, context){
     $scope.$watch('context.duration', function (nv) {
         players.forEach(function (p) {
             p.timer.setDuration(nv);
+            p.timer.stop();
         })
     });
 

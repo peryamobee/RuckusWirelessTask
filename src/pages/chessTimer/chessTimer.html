@@ -19,10 +19,9 @@
     </button>
 
 </customize-menu>
-<tick-tock ng-class="{
-        start:context.timer.state.start,
-        pause:context.timer.state.pause,
-    }"></tick-tock>
+
+
+
 <div class="dual-timer chess-timer">
     <button class="switch-toggle-player-button"
             ng-class="{
@@ -35,6 +34,17 @@
         <span >switch</span>
     </button>
     <br>
+
+    <tick-tock class="player-1"  ng-class="{
+        start:players[0].timer.state.start,
+        pause:players[0].timer.state.pause,
+    }"></tick-tock>
+
+    <tick-tock class="player-2" ng-class="{
+        start:players[1].timer.state.start,
+        pause:players[1].timer.state.pause,
+    }"></tick-tock>
+
     <div class="log-table side-by-side"
          ng-repeat="player in players"
          ng-class="{active:player.active}"

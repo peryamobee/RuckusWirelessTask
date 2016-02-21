@@ -109,6 +109,9 @@ module.exports = angular.module(__filename,[])
                 //ga('create', 'UA-XXXXX-Y', 'auto', 'start timer');
                 this.reset();
                 this.start();
+            },
+            stop: function(){
+                this.reset();
             }
         });
 
