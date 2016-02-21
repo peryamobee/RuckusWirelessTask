@@ -45,7 +45,11 @@ module.exports = angular.module(__filename,[])
                     var endTime = timer.getDuration();
                     var duration = Duration(startTime).subtract(endTime);
                     log.endTime = endTime.format(durationOption);
-                    log.duration = duration.format('mm [min] ss [sec]');
+                    var template =  (duration.asSeconds() > 0)?
+                        'h[hrs] mm[min] ss[s]':
+                        'h[hrs] mm[min] ss[s] SSS[ml]';
+                    log.duration = duration.format( template ) ;
+
 
                     summaryText = Duration(summary).add( duration ).format(durationOption);
                     final && summary.add( duration );

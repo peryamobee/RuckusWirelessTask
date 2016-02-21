@@ -47,8 +47,10 @@
 
     <div class="log-table side-by-side"
          ng-repeat="player in players"
-         ng-class="{active:player.active}"
-    >
+         ng-class="{
+            active:player.active,
+            'not-active': !player.active && (players[0].active || players[1].active)
+        }">
 
         <div class="player-name" ng-bind="player.name">name</div>
         <span>Time Left</span>
