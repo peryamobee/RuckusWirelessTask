@@ -8,6 +8,8 @@ function timerController($scope, TimeLogger, Timer, context){
    var index = -1,
         timers = [new Timer('10:00:00'),new Timer('10:00:00')];
 
+    context.autoStart && switchPlayer();
+
     var players = $scope.players =  [{
             name:context.player1Name,
             timer: timers[0],

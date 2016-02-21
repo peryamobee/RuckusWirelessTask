@@ -13,11 +13,11 @@
         Timer (counterdown)
     </h1>
     <menu>
-        <a ui-sref="root.timer" ui-sref-active="active" >simple</a>
-        <a  ui-sref="root.dual" ui-sref-active="active" >dual</a>
-        <a ui-sref="root.chess" ui-sref-active="active"     >chess</a>
+        <a ui-sref="root.timer({t:10:20:32})" ui-sref-active="active"     >simple</a>
+        <a  ui-sref="root.dual({t:context.duration})" ui-sref-active="active"     >dual</a>
+        <a ui-sref="root.chess({t:context.duration})" ui-sref-active="active"     >chess</a>
     </menu>
-    <div class="edit-timer" ng-class="{open:!timer.state.setted}">
+    <div class="edit-timer" ng-class="{open:!context.timer.state.setted}">
         <div class="container " >
             <input ng-model="context.duration"
                    ng-model-options="{updateOn:'blur'}"

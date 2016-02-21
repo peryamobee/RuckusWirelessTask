@@ -7,6 +7,7 @@ function baseController($scope, $location, Timer, context){
 
     context.extend ({
         duration : duration,
+        timer:  new Timer(duration),
         autoStart: ('autostart' in $location.search()),
         players1Name:'player1',
         players2Name:'player2',
@@ -15,22 +16,11 @@ function baseController($scope, $location, Timer, context){
             trim:false
         }
     });
-    $scope.$watch('context.duration', function (nv) {
-        $location.search('t',nv);
-        //$location.search('t',timer.getDuration().format(context.timerFormat))
-    });
-    //if('autostart' in $location.search()){
-    //    context.timer.start();
-    //}
-    //$scope.$watch('context.duration', function (nv) {
-    //    context.timer.setDuration(nv);
-    //    $location.search('t',context.timer.getDuration().format('hh:mm:ss',{trim:false}))
-    //});
 
-    //context.timer.onSetduration(function () {
-    //    $location.search('t',context.timer.getDuration().format('hh:mm:ss',{trim:false}))
-    //});
-    
+    $scope.$watch('context.duration', function (nv) {
+        context.timer.setDuration(nv);
+        $location.search('t',nv)
+    });
 }
 
 module.exports = angular.module('app', [

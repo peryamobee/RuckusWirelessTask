@@ -11,7 +11,7 @@ function timerController($scope, TimeLogger, Timer, context){
 
     /* players */
     var index = -1,
-        players = [context.players1Name,context.players2Name]
+        players = [context.players1Name, context.players2Name]
     ;
 
     function nextPlayer(val){
