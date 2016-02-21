@@ -2,12 +2,17 @@
   min-width: 26rem;
   margin: 0 auto;
   display: inline-block;
+  position: relative;
 
   timer{
     font-size:15px;
     font-weight: bold;
   }
 
+  tick-tock{
+    position: absolute;
+    right: 100%;
+  }
   .switch-player-button{
     margin-top: 20px;
   }

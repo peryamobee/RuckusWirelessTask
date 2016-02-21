@@ -7,23 +7,19 @@
 
     <br>
     <button class="pause-button"
-            ng-click="context.timer.pause()">
+            ng-click="timer.pause()">
         <i class="fa fa-pause fa-fw"></i>
         Pause
     </button>
 
     <button class="reset-button"
-            ng-click="context.timer.reset();timeLogger.clear();">
+            ng-click="timer.reset();timeLogger.clear();">
         <i class="fa fa-stop fa-fw"></i>
         Reset
     </button>
 
 </customize-menu>
 
-<tick-tock ng-class="{
-        start:context.timer.state.start,
-        pause:context.timer.state.pause,
-}"></tick-tock>
 
 <div class="dual-timer">
     <button class="switch-player-button"
@@ -38,6 +34,11 @@
                ng-class="{finish:timer.state.timeEnd}">timer inside</timer>
 
     </button>
+
+    <tick-tock ng-class="{
+        start:timer.state.start,
+        pause:timer.state.pause,
+    }"></tick-tock>
 
     <div class="log-table">
         <h3 class="header">
