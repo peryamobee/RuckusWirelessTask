@@ -6,7 +6,7 @@ require('./dualTimer.scss');
 function timerController($scope, TimeLogger, Timer, context){
     /* init page */
     var  timer = $scope.timer = new Timer(context.duration);
-    context.autoStart && timer.start();
+
     $scope.$watch('context.duration', timer.setDuration.bind(timer));
 
     /* players */
@@ -36,8 +36,8 @@ function timerController($scope, TimeLogger, Timer, context){
     });
     timer.onUpdate(function () {
         closeLog();
-    })
-
+    });
+    context.autoStart && timer.start();
 
 }
 
