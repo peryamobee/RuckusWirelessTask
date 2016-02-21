@@ -17,7 +17,7 @@ body{
 ui-view{
   background-color: inherit;
   display: block;
-  //position: relative;
+  position: relative;
 }
 ui-view.main-view{
   //padding: 1em;
@@ -44,3 +44,4 @@ menu{
      border-color: yellow;
   }
 }
+

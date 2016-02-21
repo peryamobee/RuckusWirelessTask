@@ -49,7 +49,7 @@ function timerController($scope, TimeLogger, Timer, context){
 
     function switchPlayer(){
         player.timer.pause();
-        closeLog();
+        closeLog(true);
         player.active = false;
 
         player = nextPlayer();
