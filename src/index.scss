@@ -1,17 +1,10 @@
 *{
     box-sizing: border-box;
 }
-body{
-    background-color: #e7e5e4;
-    text-align: center;
-    min-width: 1024px;
-
-
-  //tick-tock{
-  //  position: absolute;
-  //  right: 0;
-  //  background-color: inherit;
-  //}
+body {
+  background-color: #e7e5e4;
+  text-align: center;
+  min-width: 1024px;
 }
 
 ui-view{
