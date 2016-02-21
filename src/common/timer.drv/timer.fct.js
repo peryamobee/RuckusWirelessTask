@@ -13,7 +13,8 @@ module.exports = angular.module(__filename,[])
             this[_emit]= {};
             this.state = {
                  pause : true,
-                 setted : false
+                 setted : false,
+                 timeEnd : true
             };
             var previousCycle = new Date();
 
@@ -75,13 +76,16 @@ module.exports = angular.module(__filename,[])
                 return this[_duration];
             },
             start: function start(){
-                /*state*/
-                this.state.start = true;
-                this.state.pause = false;
-                this.state.stop = false;
-                this.state.timeEnd = false;
-                /*event*/
-                this[_emit].start( this[_duration] );
+                if(!this.state.timeEnd){
+                    /*state*/
+                    this.state.start = true;
+                    this.state.pause = false;
+                    this.state.stop = false;
+                    this.state.timeEnd = false;
+                    /*event*/
+                    this[_emit].start( this[_duration] );
+                }
+
 
             },
             pause: function pause () {
