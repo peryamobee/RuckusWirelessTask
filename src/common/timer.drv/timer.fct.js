@@ -6,7 +6,10 @@ module.exports = angular.module(__filename,[])
         var _duration = Symbol('_duration');
         var _on = Symbol('_on');
         var _emit = Symbol('_emit');
-
+        var durationOption = {
+            trim: false,
+            template: 'hh:mm:ss'
+        };
         function Timer(durationText){
             var me = this;
             this[_on]= {};
@@ -52,7 +55,9 @@ module.exports = angular.module(__filename,[])
                     me.pause();
                     me.state.timeEnd = true;
                     me.state.stop = true;
-                    me[_emit].timeEnd(duration)
+                    me[_emit].timeEnd(duration);
+                    /* google analytic */
+                    ga( 'Timer.send', 'event', 'Timer', 'time end', 'duration', this.durationText );
                 }
                 me[_emit].update(duration);
 
@@ -84,9 +89,9 @@ module.exports = angular.module(__filename,[])
                     this.state.timeEnd = false;
                     /*event*/
                     this[_emit].start( this[_duration] );
+                    /* google analytic */
+                    ga('Timer.send', 'event', 'Timer', 'start', 'time', this[_duration].format(durationOption) );
                 }
-
-
             },
             pause: function pause () {
                 //ga('create', 'UA-XXXXX-Y', 'auto', 'stop timter');
@@ -98,6 +103,10 @@ module.exports = angular.module(__filename,[])
                 this.state.timeEnd = false;
                 /*event*/
                 this[_emit].pause( this[_duration] );
+
+                /* google analytic */
+                ga('Timer.send', 'event', 'Timer', 'pause', 'time', this[_duration].format(durationOption) );
+
             },
             reset: function reset(){
                 this.setDuration();
@@ -108,6 +117,8 @@ module.exports = angular.module(__filename,[])
                 this.state.timeEnd = false;
 
                 this[_emit].reset( this[_duration] );
+                /* google analytic */
+                ga('Timer.send', 'event', 'Timer', 'reset', 'time', this[_duration].format(durationOption) );
             },
             restart: function restart () {
                 //ga('create', 'UA-XXXXX-Y', 'auto', 'start timer');
@@ -123,10 +134,3 @@ module.exports = angular.module(__filename,[])
         return Timer;
     });
 
-
-/*****************
- ** WEBPACK FOOTER
- ** ./src/common/timer.drv/timer.fct.js
- ** module id = 133
- ** module chunks = 0
- **/

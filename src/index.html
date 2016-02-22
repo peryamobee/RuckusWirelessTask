@@ -56,14 +56,14 @@
 <!-- Google Analytics -->
 <script>
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-74111445-1', 'auto', 'Timer', {
-        status:''
+    ga('create', {
+        trackingId: 'UA-74111445-1',
+        cookieDomain: 'auto',
+        name: 'Timer',
+        userId: ''
     });
-    ga('Timer.send', 'pageview');
-    ga(function(tracker) {
-        // Logs the tracker created above to the console.
-        console.log(tracker);
-    });
+
+
 </script>
 <script async src='//www.google-analytics.com/analytics.js'></script>
 <!-- End Google Analytics -->

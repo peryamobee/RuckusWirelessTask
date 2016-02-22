@@ -39,6 +39,9 @@ function timerController($scope, TimeLogger, Timer, context){
     });
     context.autoStart && timer.start();
 
+
+    /* google analytic */
+    ga('Timer.send', 'pageview', 'Dual Page');
 }
 
 module.exports.stateConfig = {

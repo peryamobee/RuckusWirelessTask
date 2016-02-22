@@ -8,7 +8,8 @@ function timerController($scope, $location, $timeout, Timer, context){
     context.autoStart && timer.start();
    $scope.$watch('context.duration', timer.setDuration.bind(timer));
 
-
+    /* google analytic */
+    ga('Timer.send', 'pageview', 'simple Page');
 }
 
 module.exports.stateConfig = {

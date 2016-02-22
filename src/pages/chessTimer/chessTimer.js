@@ -74,6 +74,8 @@ function timerController($scope, TimeLogger, Timer, context){
         })
     }
 
+    /* google analytic */
+    ga('Timer.send', 'pageview', 'Chess Page');
 }
 
 module.exports.stateConfig = {

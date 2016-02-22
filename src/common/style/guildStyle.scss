@@ -232,6 +232,7 @@ customize-menu{
   /*hide it*/
   transform: translateX( calc(7px - 100%) );
   transition: 0.2s transform;
+  transition-delay: 0.5s;
   z-index: 1;
 
   &:before {
@@ -245,8 +246,9 @@ customize-menu{
     left: 100%;
   }
 
-  
+
   &:hover{
+    transition-delay: 0s;
     transform: none;
   }
 
