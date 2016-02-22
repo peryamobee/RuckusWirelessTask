@@ -44,7 +44,10 @@
     "ui-router": "^0.2.15",
     "webpack": "^1.12.12",
     "webpack-dev-server": "^1.14.1",
-    "webpack-stream": "^3.1.0"
+    "webpack-stream": "^3.1.0",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-webpack": "^1.7.0"
   },
   "author": "",
   "license": "ISC"
