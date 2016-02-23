@@ -49,6 +49,6 @@ module.exports = angular.module('app', [
 
 angular.element(document).ready(function () {
     angular.bootstrap(document, [module.exports.name], {
-        //strictDi: true
+        strictDi: true
     });
 });

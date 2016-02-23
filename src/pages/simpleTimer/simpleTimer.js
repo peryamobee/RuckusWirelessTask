@@ -2,7 +2,7 @@
  * Created by pery on 31/01/2016.
  */
 require('./simpleTimer.scss');
-
+/*@ngInject*/
 function timerController($scope, $location, $timeout, Timer, context){
    var timer = $scope.timer = new Timer(context.duration);
     context.autoStart && timer.start();

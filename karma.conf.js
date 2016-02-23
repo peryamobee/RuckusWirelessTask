@@ -1,5 +1,7 @@
 // Karma configuration
 // Generated on Fri Jan 23 2015 17:22:58 GMT-0500 (EST)
+var webpackConfig = require('./webpack.config.js');
+webpackConfig.devtool = 'inline-source-map';
 
 module.exports = function(config) {
     config.set({
@@ -28,13 +30,11 @@ module.exports = function(config) {
             'tests/**/*.spec.js':['webpack','sourcemap']
         },
 
-        webpack: {
-            // karma watches the test entry points
-            // (you don't need to specify the entry option)
-            // webpack watches dependencies
-
-            // webpack configuration
-        },
+        // karma watches the test entry points
+        // (you don't need to specify the entry option)
+        // webpack watches dependencies
+        // webpack configuration
+        webpack: webpackConfig,
 
         webpackMiddleware: {
             // webpack-dev-middleware configuration
@@ -45,13 +45,14 @@ module.exports = function(config) {
         plugins: [
             require("karma-webpack"),
             require("karma-sourcemap-loader"),
-            require("mocha")
+            'karma-mocha',
+            'karma-chrome-launcher'
         ],
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['dots'],
+        reporters: ['progress'],
 
         // web server port
         port: 9876,
@@ -72,7 +73,7 @@ module.exports = function(config) {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false,
+        singleRun: true,
 
         // Helps to address an issue on TravisCI where activity can time out
         browserNoActivityTimeout: 30000
