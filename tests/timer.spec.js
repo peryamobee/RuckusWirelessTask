@@ -1,8 +1,12 @@
 /**
  * Created by Pery on 23/02/2016.
  */
+//var assert = require('assert');
+//chai.should();
+var assert = chai.assert;
 describe('timer factory', function () {
-    beforeEach(module('app'));
+
+    beforeEach(angular.mock.module('app'));
     var durationOption = {
         trim: false,
         template: 'hh:mm:ss'
@@ -11,6 +15,6 @@ describe('timer factory', function () {
 
     it('should setted', inject(function (Timer) {
         var timer = new Timer();
-        expect( timer.getDuration().format(durationOption),'00:00:00');
+        assert.equal( timer.getDuration().format(durationOption) , '00:00:00');
     }));
 });
