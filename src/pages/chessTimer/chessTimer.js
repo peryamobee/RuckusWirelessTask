@@ -2,7 +2,7 @@
  * Created by pery on 31/01/2016.
  */
 require('./chessTimer.scss');
-
+/*@ngInject*/
 function timerController($scope, TimeLogger, Timer, context){
 
    var index = -1,

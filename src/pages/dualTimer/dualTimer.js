@@ -2,7 +2,7 @@
  * Created by pery on 31/01/2016.
  */
 require('./dualTimer.scss');
-
+/*@ngInject*/
 function timerController($scope, TimeLogger, Timer, context){
     /* init page */
     var  timer = $scope.timer = new Timer(context.duration);

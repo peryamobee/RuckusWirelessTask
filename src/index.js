@@ -1,6 +1,7 @@
 require('./index.scss');
 
 
+/*@ngInject*/
 function baseController($scope, $location, Timer, context){
     var duration = $location.search().t;
     $scope.context = context;
@@ -49,6 +50,6 @@ module.exports = angular.module('app', [
 
 angular.element(document).ready(function () {
     angular.bootstrap(document, [module.exports.name], {
-        //strictDi: true
+        strictDi: true
     });
 });
