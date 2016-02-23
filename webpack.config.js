@@ -17,7 +17,7 @@ var extractSCSS =  new ExtractTextPlugin("[name].css");
 
 module.exports = {
     watch: true,
-    devtool: 'source-map',
+    devtool: 'source-map', /*devtool: 'inline-source-map'*/
     context: __dirname, /*for node key*/
     node:{
         __filename:true,

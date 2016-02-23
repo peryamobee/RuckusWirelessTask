@@ -9,11 +9,12 @@ module.exports = function(config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['mocha', 'sinon-chai', 'browserify'],
+        frameworks: ['mocha'],
 
         // list of files / patterns to load in the browser
         files: [
-            'src/common/**/__tests__/*'
+            'tests/*.spec.js',
+            'tests/**/*.spec.js'
         ],
 
         // list of files to exclude
@@ -23,18 +24,34 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'src/javascript/**/__tests__/*': ['browserify']
+            'tests/*.spec.js':['webpack','sourcemap'],
+            'tests/**/*.spec.js':['webpack','sourcemap']
         },
 
-        browserify: {
-            debug: true,
-            extensions: ['.js', '.coffee', '.hbs']
+        webpack: {
+            // karma watches the test entry points
+            // (you don't need to specify the entry option)
+            // webpack watches dependencies
+
+            // webpack configuration
         },
+
+        webpackMiddleware: {
+            // webpack-dev-middleware configuration
+            // i. e.
+            noInfo: true
+        },
+
+        plugins: [
+            require("karma-webpack"),
+            require("karma-sourcemap-loader"),
+            require("mocha")
+        ],
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['nyan'],
+        reporters: ['dots'],
 
         // web server port
         port: 9876,

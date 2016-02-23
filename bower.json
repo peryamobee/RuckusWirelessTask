@@ -1,0 +1,23 @@
+{
+  "name": "timer-app",
+  "description": "",
+  "main": "''",
+  "authors": [
+    "peryamobee <pery@amobee.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/peryamobee/RuckusWirelessTask",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "^4.2.1"
+  }
+}
