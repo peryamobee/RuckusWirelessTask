@@ -1,6 +1,6 @@
 require('./index.scss');
 
-
+/*@ngInject*/
 function baseController($scope, $location, Timer, context){
     var duration = $location.search().t;
     $scope.context = context;
