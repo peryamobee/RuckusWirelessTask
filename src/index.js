@@ -36,7 +36,7 @@ module.exports = angular.module('app', [
         name: "root",
         url: "^",
         abstract: true,
-        //template: '<ui-view>234234</ui-view>',
+        //template: '<ui-view> loading ..</ui-view>',
         controller: baseController,
         children: [
             timerPage,

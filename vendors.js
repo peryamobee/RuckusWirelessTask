@@ -10,5 +10,5 @@ global.moment = require('moment');
 require("moment-duration-format");
 
 /* angular vendors */
-require('ui-router');
+require('angular-ui-router');
 require('angular-ui-router.statehelper');
