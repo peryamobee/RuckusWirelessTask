@@ -1,5 +1,5 @@
 /* Styles */
-require('./vendors.scss');
+require('./../vendors.scss');
 
 /* JS */
 global.$ = global.jQuery = require('jquery');

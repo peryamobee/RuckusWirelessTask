@@ -32,7 +32,7 @@ module.exports = {
         //root: __dirname + '/src'
     },
     entry:{
-        vendors:'./vendors.js'
+        vendors:'./src/vendors.js'
         ,TimerApp:'./src/index.js'
 
     },
