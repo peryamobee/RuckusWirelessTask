@@ -11,7 +11,7 @@ module.exports = angular.module(__filename,[
         template:function(){
             return require('./timer.drv.html');
         }
-        ,controllerAs:'TimerCtrl'
+        //,controllerAs:'TimerCtrl'
         ,scope:{
             timer:'=timerModel',
             withMiliSeconds:'=?'
