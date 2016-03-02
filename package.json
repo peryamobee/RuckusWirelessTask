@@ -9,8 +9,9 @@
   "scripts": {
     "test": "set NODE_ENV=test karma start",
     "test:live": "set NODE_ENV=test && karma start --auto-watch --no-single-run",
-    "build": "webpack --colors --watch --optimize-dedupe",
-    "start": "set NODE_ENV=development && webpack-dev-server -d --hot --port 4040 --content-base src/",
+    "build:dev:": "webpack --config webpack-dev.config.js --optimize-dedupe",
+    "build:vendors":"webpack --config webpack-vendors.config.js" ,
+    "start": "set NODE_ENV=development && webpack-dev-server -d --port 4040 --content-base build/ --no-info" ,
     "deploy": "set NODE_ENV=production && webpack -p --optimize-dedupe",
     "deploy:debug": "set NODE_ENV=production && webpack -p --devtool source-map",
     "postinstall": "bower install"

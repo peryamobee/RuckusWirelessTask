@@ -1,6 +1,8 @@
 /**
  * Created by pery on 07/02/2016.
  */
+
+var ga = window.ga;
 module.exports = angular.module(__filename,[])
     .factory('Timer', function ($rootScope,$timeout) {
         var _duration = Symbol('_duration');
@@ -57,7 +59,7 @@ module.exports = angular.module(__filename,[])
                     me.state.stop = true;
                     me[_emit].timeEnd(duration);
                     /* google analytic */
-                    ga( 'Timer.send', 'event', 'Timer', 'time end', 'duration', this.durationText );
+                    ga && ga( 'Timer.send', 'event', 'Timer', 'time end', 'duration', this.durationText );
                 }
                 me[_emit].update(duration);
 
@@ -90,7 +92,7 @@ module.exports = angular.module(__filename,[])
                     /*event*/
                     this[_emit].start( this[_duration] );
                     /* google analytic */
-                    ga('Timer.send', 'event', 'Timer', 'start', 'time', this[_duration].format(durationOption) );
+                    ga && ga('Timer.send', 'event', 'Timer', 'start', 'time', this[_duration].format(durationOption) );
                 }
             },
             pause: function pause () {
@@ -105,7 +107,7 @@ module.exports = angular.module(__filename,[])
                 this[_emit].pause( this[_duration] );
 
                 /* google analytic */
-                ga('Timer.send', 'event', 'Timer', 'pause', 'time', this[_duration].format(durationOption) );
+                ga && ga('Timer.send', 'event', 'Timer', 'pause', 'time', this[_duration].format(durationOption) );
 
             },
             reset: function reset(){
@@ -118,7 +120,7 @@ module.exports = angular.module(__filename,[])
 
                 this[_emit].reset( this[_duration] );
                 /* google analytic */
-                ga('Timer.send', 'event', 'Timer', 'reset', 'time', this[_duration].format(durationOption) );
+                ga && ga('Timer.send', 'event', 'Timer', 'reset', 'time', this[_duration].format(durationOption) );
             },
             restart: function restart () {
                 //ga('create', 'UA-XXXXX-Y', 'auto', 'start timer');

@@ -34,10 +34,10 @@ module.exports = {
     entry:{
         vendors:'./src/vendors.js'
         ,TimerApp:'./src/index.js'
-
     },
     output:{
         path: path.join(__dirname,'build'),
+        //publicPath: "/assets/",
         filename:'[name].js'
     },
     module:{
