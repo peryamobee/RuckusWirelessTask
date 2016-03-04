@@ -17,6 +17,3 @@ module.exports = angular.module(__filename, [
     ,require('./classToggle.drv/classToggle').name
 
 ])
-    .run(function () {
-    console.log('common run');
-});

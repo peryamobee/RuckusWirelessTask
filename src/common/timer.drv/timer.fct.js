@@ -19,7 +19,9 @@ module.exports = angular.module(__filename,[])
             this.state = {
                  pause : true,
                  setted : false,
-                 timeEnd : true
+                 timeEnd : true,
+                 start  : false,
+                 stop: true
             };
             var previousCycle = new Date();
 
@@ -52,6 +54,9 @@ module.exports = angular.module(__filename,[])
                 var timePass = time - prevTime;
                 var duration = me[_duration];
                 duration.subtract(timePass,'milliseconds');
+                //console.log(timePass, duration.asMilliseconds());
+
+
                 if( duration.asMilliseconds() <= 0 ){
                     duration.add( -duration.asMilliseconds() );
                     me.pause();

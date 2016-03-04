@@ -75,7 +75,7 @@ module.exports = function(config) {
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress', 'html'],
+        reporters: ['mocha'],
         htmlReporter: {
             outputDir: 'karma_html', // where to put the reports
             templatePath: null, // set if you moved jasmine_template.html
