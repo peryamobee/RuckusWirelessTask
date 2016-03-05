@@ -19,7 +19,7 @@ module.exports = angular.module(__filename,[])
             this.state = {
                  pause : true,
                  setted : false,
-                 timeEnd : true,
+                 timeEnd : false, /*mean time reached the end*/
                  start  : false,
                  stop: true
             };

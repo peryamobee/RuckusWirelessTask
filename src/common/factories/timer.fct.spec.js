@@ -116,10 +116,10 @@ describe('timer factory:', (function ($timeout) {
         it('time should reset to last setDuration state', function () {
             timer.getDuration().format(durationOption).should.be.equal('00:05:00');
         })
-    })
+    });
 
 
-    describe('restart,'); //just call this.reset and this.stop
-    describe('stop,'); //just call this.reset
+    //describe('restart,'); //just call this.reset and this.stop
+    //describe('stop,'); //just call this.reset
 }));
 

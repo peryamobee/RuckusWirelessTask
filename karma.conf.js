@@ -21,8 +21,8 @@ module.exports = function(config) {
             'node_modules/angular-mocks/angular-mocks.js',
             'build/TimerApp.js',
             'bower_components/chai/chai.js',
-            'tests/*.spec.js',
-            'tests/**/*.spec.js'
+            'src/*.spec.js',
+            'src/**/*.spec.js'
         ],
 
         // list of files to exclude
