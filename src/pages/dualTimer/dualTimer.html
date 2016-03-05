@@ -1,4 +1,4 @@
-<customize-menu>
+<side-menu>
     <h3>customize</h3>
     <br>
     <span>milli sec :</span><toggle ng-model="context.milisec"></toggle>
@@ -19,7 +19,7 @@
         Reset
     </button>
 
-</customize-menu>
+</side-menu>
 
 
 <div class="dual-timer">
@@ -31,7 +31,7 @@
             Pause
         </button>
 
-        <button class="switch-player-button"
+        <button class="big-main-button"
                 ng-class="{'burn-fx':context.burnFx && timer.state.start}"
                 ng-click="switchPlayer()">
 

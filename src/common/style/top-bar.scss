@@ -1,0 +1,47 @@
+/*************
+ links menu
+*************/
+top-bar{
+  margin-top: 0;
+  padding: 0;
+  a{
+    display: inline-block;
+    border-bottom: 2px solid white;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+    font-size: 17px;
+    margin: 0 0.3em;
+    padding: 0.2em 0.6em;
+    font-weight: bold;
+    box-shadow: 0 1px 4px -2px rgba(0,0,0,0.4);
+    border-radius: 10px/5px;
+    position: relative;
+    line-height: 2em;
+
+
+    &:after{
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left:0;
+      width: 100%;
+      height: 100%;
+      border: inherit;
+      border-radius: inherit;
+      transition: transform 0.4s;
+      opacity: 0;
+      transform: rotateX(18deg);
+    }
+
+    &:hover:after, &.active:after{
+      opacity: 1;
+      transform: rotateX(180deg);
+    }
+
+
+  }
+  a.active{
+    border-color: yellow;
+  }
+}

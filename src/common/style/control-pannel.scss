@@ -1,0 +1,9 @@
+control-pannel{
+  display: inline-block;
+  border: 2px solid white;
+  border-radius: 0.5em;
+  perspective: 50000px;
+  //transition: all 0.3s linear;
+  transform-style: preserve-3d;
+  background-color: #F5F5F5;
+}
