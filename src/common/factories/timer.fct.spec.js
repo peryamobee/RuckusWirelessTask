@@ -1,27 +1,24 @@
-/**
- * Created by Pery on 23/02/2016.
- */
-
 //var assert = require('assert');
 var should = chai.should();
 //chai.should();
 
 //var assert = chai.assert;
-
+mocha.allowUncaught();
 describe('timer factory:', (function ($timeout) {
 
     var timer ;
 
     var durationOption = {
         trim: false,
-        template: 'hh:mm:ss'
+        template: 'hh:mm:ss.SSS'
     };
-    var _$timeout = null;
+    var $timeout = null;
 
     beforeEach(angular.mock.module('app')); //why before not work here
+    //beforeEach(angular.mock.module(require('./timer.fct').name)); //why before not work here
 
-    beforeEach(inject(function ($timeout) {
-        _$timeout = $timeout;
+    beforeEach(inject(function (_$timeout_) {
+        $timeout = _$timeout_;
     }));
 
     it('should exist',inject(function (Timer) {
@@ -30,7 +27,7 @@ describe('timer factory:', (function ($timeout) {
     }));
 
     it('default duration', inject(function () {
-        timer.getDuration().format(durationOption).should.equal('00:00:00');
+        timer.getDuration().format(durationOption).should.equal('00:00:00.000');
     }));
 
     it('init state', function () {
@@ -41,21 +38,29 @@ describe('timer factory:', (function ($timeout) {
 
     it('set to 02:05:30', inject(function () {
         timer.setDuration('02:05:30');
-        should.equal( timer.getDuration().format(durationOption) , '02:05:30');
+        should.equal( timer.getDuration().format(durationOption) , '02:05:30.000');
         timer.state.should.be.deep.equals({
             pause: true, setted: true, timeEnd: false, start: false, stop: true
         })
     }));
 
+    it('use other format', function () {
+        console.log('`03h 20m 12s 4ms`');
+        timer.setDuration('03h 20m 12s 4ms');
+        should.equal( timer.getDuration().format(durationOption) , '03:20:12.004');
+        console.log('`1hour 2m 3seconds 4ms`');
+        timer.setDuration('1hour 2m 3seconds 4ms');
+        should.equal( timer.getDuration().format(durationOption) , '01:02:03.004');
+    });
+
+
+
     it('set to 00:05:00', inject(function () {
         timer.setDuration('00:05:00');
-        should.equal( timer.getDuration().format(durationOption) , '00:05:00');
+        should.equal( timer.getDuration().format(durationOption) , '00:05:00.000');
     }));
 
-    it.skip('set to 1\' 5"', function () {
-        timer.setDuration('1\' 4"');
-        should.equal( timer.getDuration().format(durationOption) , '00:04:00');
-    });
+
 
     describe('starting,', function () {
         this.timeout(93500);
@@ -114,7 +119,7 @@ describe('timer factory:', (function ($timeout) {
         });
         
         it('time should reset to last setDuration state', function () {
-            timer.getDuration().format(durationOption).should.be.equal('00:05:00');
+            timer.getDuration().format(durationOption).should.be.equal('00:05:00.000');
         })
     });
 

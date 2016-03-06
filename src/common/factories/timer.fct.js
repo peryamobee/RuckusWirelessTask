@@ -1,7 +1,3 @@
-/**
- * Created by pery on 07/02/2016.
- */
-
 var ga = window.ga;
 module.exports = angular.module(__filename,[])
     .factory('Timer', function ($rootScope,$timeout) {
@@ -12,6 +8,33 @@ module.exports = angular.module(__filename,[])
             trim: false,
             template: 'hh:mm:ss'
         };
+        /** [10h] [10m] [10s] [10ms] */
+        /** [10hour] [10min] [10sec] [10milisec] */
+        /** [10hour[s]] [10minute[s]] [10second[s]] [10[milisec[s]] */
+        var hours = "(?:(\\d{1,2})\\s*(?:h|hour|hours)\\b)?"  //\b is word boundary
+            ,minutes = "(?:(\\d{1,2})\\s*(?:m|min|minute|minutes)\\b)?"
+            ,seconds = "(?:(\\d{1,2})\\s*(?:s|sec|second|seconds)\\b)?"
+            ,miliseconds = "(?:(\\d{1,2})\\s*(?:ms|milisec|milisecs)\\b)?"
+            ;
+        var format = [hours,minutes,seconds,miliseconds].join('\\s*')
+            ,timeExtractor = new RegExp(format);
+        function parseDuration(text){
+            var breakdown = (text || '').match( timeExtractor );
+            var describTime = null;
+            if(breakdown[0]){ //if !=''
+                describTime = {
+                    h: breakdown[1]*1 || 0,
+                    m: breakdown[2]*1 || 0,
+                    s: breakdown[3]*1 || 0,
+                    ms: breakdown[4]*1 || 0
+                };
+
+            }
+
+            return breakdown[0]?describTime:text;
+        }
+
+
         function Timer(durationText){
             var me = this;
             this[_on]= {};
@@ -75,8 +98,10 @@ module.exports = angular.module(__filename,[])
         var events = 'reset'.split(',');
         _.extend(Timer.prototype,{
             setDuration: function setDuration( durationText ) {
-                this.durationText = durationText ||  this.durationText;
-                this[_duration] =  moment.duration( this.durationText );
+                var durationDescription = parseDuration(durationText);
+                durationDescription = durationDescription || this.durationDescription;
+                this[_duration] =  moment.duration( durationDescription );
+                this.durationDescription = durationDescription;
                 /*state*/
                 this.state.timeEnd = false;
                 this.state.setted = (this[_duration].asMilliseconds() > 0);
