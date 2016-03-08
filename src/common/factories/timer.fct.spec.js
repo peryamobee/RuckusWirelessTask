@@ -1,7 +1,6 @@
 //var assert = require('assert');
 var should = chai.should();
-//chai.should();
-
+chai.config.includeStack = false;
 //var assert = chai.assert;
 mocha.allowUncaught();
 describe('timer factory:', (function ($timeout) {

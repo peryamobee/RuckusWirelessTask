@@ -4,11 +4,11 @@
 require('./toggle.scss');
 
 module.exports = angular.module(__filename, [])
-    .directive('toggle', function () {
+    .directive('toggle-button', function () {
         return {
             restrict: "E",
             require: 'ngModel',
-            template: require('./toggle.html'),
+            template: require('./toggle-button.html'),
             link: function ( scope, element, attr, ctrl ) {
                 var PARTIAL = 2;
                 var trueValue = attr.ngTrueValue || 'true';
