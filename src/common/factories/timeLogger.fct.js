@@ -47,7 +47,7 @@ module.exports = angular.module(__filename,[])
                     log.endTime = endTime.format(durationOption);
                     var template =  (duration.asSeconds() > 0)?
                         'h[hrs] mm[min] ss[s]':
-                        'h[hrs] mm[min] ss[s] SSS[ml]';
+                        'h[hrs] mm[min] ss[s] SSS[ms]';
                     log.duration = duration.format( template ) ;
 
 

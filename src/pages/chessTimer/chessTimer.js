@@ -1,24 +1,22 @@
-/**
- * Created by pery on 31/01/2016.
- */
 require('./chessTimer.scss');
 /*@ngInject*/
 function timerController($scope, TimeLogger, Timer, context){
 
    var index = -1,
-        timers = [new Timer('10:00:00'),new Timer('10:00:00')];
+        timers = [new Timer(context.duration),new Timer(context.duration)];
 
-    context.autoStart && switchPlayer();
+
+
 
     var players = $scope.players =  [{
-            name:context.player1Name,
+            name:context.players1Name,
             timer: timers[0],
             timeLogger: new TimeLogger( timers[0] ),
             get active(){
                 return this.timer.state.start;
             }
         },{
-            name:context.player2Name,
+            name:context.players2Name,
             timer: timers[1],
             timeLogger: new TimeLogger( timers[1] ),
             get active(){
@@ -26,10 +24,11 @@ function timerController($scope, TimeLogger, Timer, context){
             }
         }];
 
-    function nextPlayer(val){
-        val =(++index) % players.length ;
-        return  players[ val ];
-    }
+    $scope.$watch('context.duration', function(newDuration) {
+        timers.forEach(function (timer) {
+            timer.setDuration(newDuration)
+        });
+    });
 
     $scope.switchPlayer = switchPlayer;
     $scope.resetTimers = resetTimers;
@@ -43,22 +42,28 @@ function timerController($scope, TimeLogger, Timer, context){
         })
     });
 
-    $scope.$watch('context.duration', function (nv) {
-        players.forEach(function (p) {
-            p.timer.setDuration(nv);
-            p.timer.stop();
-        })
-    });
+    function nextPlayer(){
+        return  players[ (++index) % players.length ];
+    }
 
     function switchPlayer(){
+        close( player );
+        player = nextPlayer();
+        start( player );
+    }
+
+    function start(player){
+        if( player.timer.state.setted ) {
+            player.timer.start();
+            //player.active = true;
+            closeLog = player.timeLogger.createLog(player.name);
+        }
+    }
+
+    function close(player){
         player.timer.pause();
         closeLog(true);
         player.active = false;
-
-        player = nextPlayer();
-        player.timer.start();
-        player.active = true;
-        closeLog = player.timeLogger.createLog( player.name );
     }
 
     function resetTimers(){
@@ -73,6 +78,7 @@ function timerController($scope, TimeLogger, Timer, context){
             p.timer.pause();
         })
     }
+    context.autoStart && start(player);
 
     /* google analytic */
     ga('Timer.send', 'pageview', 'Chess Page');
