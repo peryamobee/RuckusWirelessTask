@@ -80,4 +80,14 @@
     border-left: 1px solid black;
   }
 
+  .log-table{
+    .log:nth-last-child(even){
+      margin-top:0;
+      border-top:none;
+    }
+    .log:nth-last-child(odd){
+      border-bottom: none;
+    }
+  }
+
 }
