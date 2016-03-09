@@ -4,6 +4,7 @@
 
 require('./style/elegant-shadow.fx.scss');
 require('./style/shadow.fx.scss');
+require('./style/inside-fire.fx.scss');
 require('./style/guide-style.scss');
 require('./style/side-menu.scss');
 require('./style/control-pannel.scss');
@@ -16,7 +17,6 @@ module.exports = angular.module(__filename, [
     ,require('./factories/timer.fct.js').name
     ,require('./factories/timeLogger.fct.js').name
     ,require('./services/context.srv/context.srv').name
-    ,require('./inputs/toggle.drv/toggle').name
-    ,require('./helpers/classToggle.drv/classToggle').name
-
-])
+    ,require('./inputs/toggle-button.drv/toggle-button').name
+    ,require('./helpers/classToggle.drv').name
+]);

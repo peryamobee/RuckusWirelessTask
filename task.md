@@ -45,3 +45,4 @@ todo: make .map more useful
 todo: make tab work on input button
 todo: change the direction of cycle
 todo: make server serve build real builfile not from memory
+todo: find a better font for timer and menu

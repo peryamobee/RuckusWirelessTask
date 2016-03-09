@@ -1,10 +1,10 @@
 /**
  * Created by Pery on 17/02/2016.
  */
-require('./toggle.scss');
+require('./toggle-button.scss');
 
 module.exports = angular.module(__filename, [])
-    .directive('toggle-button', function () {
+    .directive('toggleButton', function () {
         return {
             restrict: "E",
             require: 'ngModel',

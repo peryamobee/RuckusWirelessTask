@@ -18,7 +18,20 @@
         <a ui-sref="root.chess({t:context.duration})" ui-sref-active="active"     >chess</a>
     </top-bar>
     <div class="edit-timer" ng-class="{open:!context.timer.state.setted}">
-        <div class="container " >
+        <div class="container" >
+            <div class="description">
+                Setting Timer by using one of the format:
+                <br>
+                <span class="format">10h 10m 10s 10ms</span>
+                <br>
+                <span class="format">10hour/s 10 minute/s 10 second/s 10milisec/s</span>
+                <br>
+                <span class="format">10:10:10.10</span>
+                <br>
+                <span class="format">or <a href="http://en.wikipedia.org/wiki/ISO_8601#Time_intervals">ISO 8601</a> style : T4H5M6S</span>
+                <br>
+                add or not add space ' ' between numbers <br> and unit is by to you. either work
+            </div>
             <input ng-model="context.duration"
                    ng-model-options="{updateOn:'blur'}"
                    placeholder="hh:mm:ss[.ml]">

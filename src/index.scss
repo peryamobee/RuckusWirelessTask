@@ -1,19 +1,37 @@
 .edit-timer{
+  margin: 1em 0;
   .container{
+    position: relative;
     transition: all 0.1s;
     height: 0;
     overflow: hidden;
 
+
   }
   &.open{
     .container{
-      height: 8em;
+      height: 9em;
     }
   }
 
   .bar{
     background: #353541;
     color: white;
+  }
+  .description{
+    position: absolute;
+    right:0;
+    float: right;
+    font-size: 12px;
+    text-shadow: 1px 1px white;
+    text-align: left;
+    line-height: 1.6em;
+    font-weight: bold;
+    font-family: monospace;
+    color: rgba(0,0,0,0.3);
+    a{
+      color: inherit;
+    }
   }
 
   .pullmenu-icon{

@@ -61,7 +61,7 @@ tick-tock {
     position: relative;
     width: 100%;
     height: 189px;
-    -webkit-filter: blur(12px);
+    -webkit-filter: blur(6px);
     transform-origin: 50% 100%;
     transform: rotateX(270deg);
   }
@@ -87,7 +87,7 @@ tick-tock {
     top: 36px;
     left: 117px;
     border-radius: 50%;
-    border: dashed 1px rgba(255, 255, 255, 0.2);
+    border: dashed 1px rgba(255, 255, 255, 0.5)
     //animation: spin 12s linear infinite;
   }
 
@@ -95,11 +95,10 @@ tick-tock {
     position: absolute;
     width: 39px;
     height: 39px;
-    top: 18px;
-    left: 186px;
+    top: 29px;
+    left: 30px;
     border-radius: 50%;
-    border: dashed 1px rgba(255, 255, 255, 0.09);
-    //animation: spin-reversed 6s linear infinite;
+    border: dashed 1px rgba(255, 255, 255, 0.58);
 
   }
 

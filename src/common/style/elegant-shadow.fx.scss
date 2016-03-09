@@ -10,35 +10,13 @@ h1 {
     color: #131313;
     letter-spacing: .15em;
     text-shadow:
-            1px -1px 0    #bcbbba,
-            -1px 2px 1px  #c1bfbf,
-              /*   -2px 4px 1px  #c6c4c4,
-                 -3px 6px 1px  #cbc9c8,
-                 -4px 8px 1px  #cfcdcd,
-                 -5px 10px 1px #d4d2d1,
-               -6px 12px 1px #d8d6d5,
-                 -7px 14px 1px #dbdad9,
-                 -8px 16px 1px #dfdddc,
-                 -9px 18px 1px #e2e0df,*/
-             -2px 4px  1px #a8a6a6,
-             -3px 6px  1px #adabab,
-             -4px 8px  1px #b2b1b0,
-             -5px 10px 1px #b7b6b5,
-    /*-14px 28px 1px #a8a6a6,
-      -15px 30px 1px #adabab,
-      -16px 32px 1px #b2b1b0,
-      -17px 34px 1px #b7b6b5,
-      -18px 36px 1px #bcbbba,
-      -19px 38px 1px #c1bfbf,
-      -20px 40px 1px #c6c4c4,
-      -21px 42px 1px #cbc9c8,
-      -22px 44px 1px #cfcdcd,
-      -23px 46px 1px #d4d2d1,
-      -24px 48px 1px #d8d6d5,
-      -25px 50px 1px #dbdad9,
-      -26px 52px 1px #dfdddc,
-      -27px 54px 1px #e2e0df,
-      -28px 56px 1px #e4e3e2*/;
+            1px -1px 0 rgba(188, 187, 186, 1),
+            -1px 2px 1px rgba(193, 191, 191, 1),
+             -2px 4px  1px rgba(168, 166, 166, 1),
+             -3px 6px  1px rgba(173, 171, 171, 1),
+             -4px 8px  1px rgba(178, 177, 176, 1),
+             -5px 10px 1px rgba(183, 182, 181, 1)
+    ;
   }
   &.deepshadow {
     color: #e0dfdc;
