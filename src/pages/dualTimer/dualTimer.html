@@ -35,13 +35,11 @@
                 ng-class="{'burn-fx':context.burnFx && timer.state.start}"
                 ng-click="switchPlayer()">
 
-            <span ng-show="timer.state.start">switch</span>
-            <span ng-hide="timer.state.start">start</span>
-            <br>
             <timer timer-model="timer"
                    with-mili-seconds="context.milisec"
                    ng-class="{finish:timer.state.timeEnd}">timer inside</timer>
-
+            <span ng-show="timer.state.start">switch</span>
+            <span ng-hide="timer.state.start">start</span>
         </button>
 
         <button class="pause-button"

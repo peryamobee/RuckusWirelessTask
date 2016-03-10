@@ -1,6 +1,14 @@
 /************
  log-table
 ***********/
+@font-face{
+  font-family:"audiowide";
+  src: url('../../fonts/auditiowide/Audiowide-Regular.ttf') format("truetype");
+}
+@font-face{
+  font-family:"Digital";
+  src: url('../../fonts/digital/digital-7(mono).ttf') format("truetype");
+}
 
 .log-table{
   min-height: 30em;
@@ -18,6 +26,7 @@
     letter-spacing: 2px;
   }
 
+
   .duration-time{
     letter-spacing: 2px;
   }
@@ -34,6 +43,14 @@
     overflow: hidden;
     clear: both;
     font-family: "Times New Roman";
+
+    .player-name{
+      font-family: audiowide;
+    }
+
+    .start-time,.end-time,.duration-time{
+      font-family: Digital;
+    }
 
   }
   .log:nth-last-child(odd){

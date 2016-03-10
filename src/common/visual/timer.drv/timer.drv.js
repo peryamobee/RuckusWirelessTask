@@ -6,7 +6,7 @@ require('./timer.drv.scss');
 module.exports = angular.module(__filename,[
     require('./../../factories/timer.fct.js').name
 ])
-.directive('timer',function (Timer) {
+.directive('timer',function () {
     return {
         template:function(){
             return require('./timer.drv.html');

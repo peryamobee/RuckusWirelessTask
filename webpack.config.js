@@ -61,7 +61,7 @@ module.exports = {
                 exclude: /node_modules|bower_components/},
 
             {test: /\.(woff|woff2|ttf|eot|svg)(\?]?.*)?$/,
-                loader : 'file-loader?name=res/[name].[ext]?[hash]'
+                loader : 'url-loader?limit=10000&name="fonts/[name].[ext]?[hash]"'
             },
             //{test: /index\.html$/,
             //    loader : 'file-loader?name=[name].[ext]'
