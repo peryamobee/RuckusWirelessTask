@@ -63,6 +63,6 @@
     "webpack-dev-server": "^1.14.1",
     "webpack-stream": "^3.1.0"
   },
-  "author": "",
+  "author": "pery mimon",
   "license": "ISC"
 }
